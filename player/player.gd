@@ -5,12 +5,15 @@ class_name Player
 @onready var weapon_muzzle: Marker2D = $WeaponMuzzle
 
 var facing_direction := "down"
-var move_speed := 120
+var move_speed := 60
 var current_animation := ""
 var equipped_weapon: Weapon
 
 func _ready() -> void:
 	equipped_weapon = AssaultRifle.new()
+	
+func _process(delta: float) -> void:
+	handle_shoot()
 	
 func _physics_process(delta: float) -> void:
 	handle_movement()
@@ -19,6 +22,12 @@ func _physics_process(delta: float) -> void:
 	handle_animation()
 	
 	move_and_slide()
+	
+func handle_shoot() -> void:
+	if Input.is_action_pressed("shoot"):
+		var direction := (get_global_mouse_position() - global_position).normalized()
+		
+		equipped_weapon.try_shoot(self, direction)
 
 func handle_movement() -> void:
 	var direction := Vector2.ZERO
@@ -94,8 +103,8 @@ func get_animation_direction() -> String:
 	return "down"
 
 func play_animation(animation_name: String) -> void:
-		if current_animation == animation_name:
-			return
+	if current_animation == animation_name:
+		return
 
-		current_animation = animation_name
-		animated_sprite.play(current_animation)
+	current_animation = animation_name
+	animated_sprite.play(current_animation)

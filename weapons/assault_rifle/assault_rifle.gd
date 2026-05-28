@@ -19,3 +19,10 @@ func get_muzzle_position(facing_direction) -> Vector2:
 	}
 	
 	return positions[facing_direction]
+
+func shoot(owner, direction) -> void:
+	var projectile = data.projectile.instantiate()
+	projectile.global_position = owner.weapon_muzzle.global_position
+	projectile.direction = direction
+	
+	owner.get_tree().current_scene.add_child(projectile)
