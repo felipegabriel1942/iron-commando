@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1v03ctptc544"]
+
+[ext_resource type="PackedScene" uid="uid://cu4f01aunukx1" path="res://player/player.tscn" id="1_6tisa"]
+
+[node name="BaseLevel" type="Node2D" unique_id=243948734]
+
+[node name="YSortRoot" type="Node2D" parent="." unique_id=1107825696]
+
+[node name="Player" parent="YSortRoot" unique_id=287460810 instance=ExtResource("1_6tisa")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1175187844]

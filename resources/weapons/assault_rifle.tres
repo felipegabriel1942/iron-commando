@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://blyrwphuvtkdn"]
+
+[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_su3sc"]
+
+[resource]
+script = ExtResource("1_su3sc")
+weapon_name = "Assault Rifle"
+animation_suffix = "assault_rifle"
+metadata/_custom_type_script = "uid://co6kxjc1fuo3w"
