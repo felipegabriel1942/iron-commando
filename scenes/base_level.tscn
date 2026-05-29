@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://b1v03ctptc544"]
 
 [ext_resource type="PackedScene" uid="uid://cu4f01aunukx1" path="res://player/player.tscn" id="1_6tisa"]
+[ext_resource type="PackedScene" uid="uid://bmyy7t6hkg4u" path="res://enemy/enemy_infantry/enemy_infantry.tscn" id="1_dbkse"]
 
 [node name="BaseLevel" type="Node2D" unique_id=243948734]
 
 [node name="YSortRoot" type="Node2D" parent="." unique_id=1107825696]
 
+[node name="Enemies" type="Node2D" parent="YSortRoot" unique_id=1506805510]
+
+[node name="EnemyInfantry" parent="YSortRoot/Enemies" unique_id=596986420 instance=ExtResource("1_dbkse")]
+position = Vector2(66, 2)
+
 [node name="Player" parent="YSortRoot" unique_id=287460810 instance=ExtResource("1_6tisa")]
+position = Vector2(-92, 33)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1175187844]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://1rvcvhb4o408"]
+
+[ext_resource type="Script" uid="uid://defym13gy6sq3" path="res://scenes/battle_test.gd" id="1_8ajim"]
+[ext_resource type="PackedScene" uid="uid://cu4f01aunukx1" path="res://player/player.tscn" id="2_8ajim"]
+
+[node name="BattleTest" type="Node2D" unique_id=1254210045]
+script = ExtResource("1_8ajim")
+
+[node name="YSortRoot" type="Node2D" parent="." unique_id=334680165]
+
+[node name="EnemiesContainer" type="Node2D" parent="YSortRoot" unique_id=467780310]
+
+[node name="SpawnersContainer" type="Node2D" parent="YSortRoot" unique_id=449903860]
+
+[node name="SpawnerPoint01" type="Marker2D" parent="YSortRoot/SpawnersContainer" unique_id=379685895]
+position = Vector2(115, -64)
+
+[node name="SpawnerPoint02" type="Marker2D" parent="YSortRoot/SpawnersContainer" unique_id=899461070]
+position = Vector2(-115, -66)
+
+[node name="SpawnerPoint03" type="Marker2D" parent="YSortRoot/SpawnersContainer" unique_id=874008180]
+position = Vector2(108, 48)
+
+[node name="SpawnerPoint04" type="Marker2D" parent="YSortRoot/SpawnersContainer" unique_id=1410695385]
+position = Vector2(-111, 58)
+
+[node name="Player" parent="YSortRoot" unique_id=287460810 instance=ExtResource("2_8ajim")]
+position = Vector2(-1, -2)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=146219960]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1694544826]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_time"]

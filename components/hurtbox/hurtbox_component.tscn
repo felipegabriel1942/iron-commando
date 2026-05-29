@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bw31l6yyawy0x"]
+
+[ext_resource type="Script" uid="uid://cks8xo7itqqsp" path="res://components/hurtbox/hurtbox_component.gd" id="1_moset"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moset"]
+size = Vector2(15, 24)
+
+[node name="HurtboxComponent" type="Area2D" unique_id=1662772938]
+script = ExtResource("1_moset")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074407326]
+shape = SubResource("RectangleShape2D_moset")
+debug_color = Color(0.9353062, 0.19618037, 0.42042437, 0.41960785)

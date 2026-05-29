@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dirtn7msawpug" path="res://assets/art/Characters/Player/player_Assault_rifle.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b1h4k51u86m73" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="3_g1dw6"]
+[ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="4_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="4_yw30f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjkh3"]
+shader = ExtResource("4_qjkh3")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4c7l"]
 atlas = ExtResource("1_oul6g")
@@ -234,12 +242,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(11, 5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6k8r"]
+shader = ExtResource("4_qjkh3")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=287460810]
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1854669178]
+material = SubResource("ShaderMaterial_qjkh3")
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"idle_diagonal_up_assault_rifle"
+animation = &"idle_diagonal_down_assault_rifle"
 autoplay = "idle_side_assault_rifle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=152480364]
@@ -254,3 +268,17 @@ gizmo_extents = 20.0
 offset_right = 2.0
 offset_bottom = 2.0
 color = Color(0.93333334, 0.38039216, 0.45882353, 1)
+
+[node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("3_g1dw6")]
+material = SubResource("ShaderMaterial_g6k8r")
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("4_yw30f")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
+position = Vector2(-0.5, 2)
+
+[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="HurtboxComponent"]

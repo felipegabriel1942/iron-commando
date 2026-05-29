@@ -1,11 +1,11 @@
 extends Weapon
-class_name AssaultRifle
+class_name EnemyAssaultRifle
 
 func _init() -> void:
 	data = preload(
-		"res://resources/weapons/assault_rifle.tres"
+		"res://resources/weapons/enemy_assault_rifle.tres"
 	)
-	
+
 func get_muzzle_position(facing_direction) -> Vector2:
 	var positions = {
 		"up": Vector2(5, -7),

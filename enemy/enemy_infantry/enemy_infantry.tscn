@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bmyy7t6hkg4u"]
+
+[ext_resource type="Script" uid="uid://nf8tljglinnf" path="res://enemy/enemy_infantry/enemy_infantry.gd" id="1_dlbxo"]
+[ext_resource type="Texture2D" uid="uid://o4ux4h1740qc" path="res://assets/art/Characters/Enemies/enemy_assault_rifle.png" id="2_elf6c"]
+[ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_p0uk1"]
+[ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="3_t6tag"]
+[ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="5_mvox7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlbxo"]
+resource_local_to_scene = true
+shader = ExtResource("3_t6tag")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxxlh"]
+atlas = ExtResource("2_elf6c")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6tag"]
+atlas = ExtResource("2_elf6c")
+region = Rect2(16, 128, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlbxo"]
+atlas = ExtResource("2_elf6c")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0uk1"]
+atlas = ExtResource("2_elf6c")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvox7"]
+atlas = ExtResource("2_elf6c")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6omo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxxlh")
+}],
+"loop": true,
+"name": &"idle_diagonal_down_assault_rifle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6tag")
+}],
+"loop": true,
+"name": &"idle_diagonal_up_assault_rifle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlbxo")
+}],
+"loop": true,
+"name": &"idle_down_assault_rifle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0uk1")
+}],
+"loop": true,
+"name": &"idle_side_assault_rifle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvox7")
+}],
+"loop": true,
+"name": &"idle_up_assault_rifle",
+"speed": 5.0
+}]
+
+[node name="EnemyInfantry" type="CharacterBody2D" unique_id=596986420]
+script = ExtResource("1_dlbxo")
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("2_p0uk1")]
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
+position = Vector2(0.5, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826973132]
+material = SubResource("ShaderMaterial_dlbxo")
+sprite_frames = SubResource("SpriteFrames_w6omo")
+animation = &"idle_up_assault_rifle"
+autoplay = "idle_side_assault_rifle"
+
+[node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("5_mvox7")]
+
+[node name="WeaponMuzzle" type="Marker2D" parent="." unique_id=1978447752]
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1046545415]
+wait_time = 0.8
+autostart = true
+
+[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+
+[editable path="HurtboxComponent"]

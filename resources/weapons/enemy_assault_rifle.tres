@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://whvkw3m74al8"]
+
+[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_1hcba"]
+[ext_resource type="PackedScene" uid="uid://1g4ch30jy34u" path="res://projectiles/weapon_bullet/enemy_weapon_bullet.tscn" id="1_trngk"]
+
+[resource]
+script = ExtResource("1_1hcba")
+weapon_name = "Assault Rifle"
+animation_suffix = "assault_rifle"
+projectile = ExtResource("1_trngk")
+metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

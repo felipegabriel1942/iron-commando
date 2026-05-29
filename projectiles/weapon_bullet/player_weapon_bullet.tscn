@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(5, 5)
 
 [node name="PlayerWeaponBullet" unique_id=292362130 instance=ExtResource("1_qj0k1")]
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=306531591]
 sprite_frames = SubResource("SpriteFrames_aownu")

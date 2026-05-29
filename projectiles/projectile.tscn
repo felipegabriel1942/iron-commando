@@ -4,3 +4,7 @@
 
 [node name="Projectile" type="Area2D" unique_id=292362130]
 script = ExtResource("1_wrf7x")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=339535625]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
