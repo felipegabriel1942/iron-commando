@@ -3,6 +3,7 @@ class_name Player
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon_muzzle: Marker2D = $WeaponMuzzle
+@onready var camera: Camera2D = $Camera2D
 
 var facing_direction := "down"
 var move_speed := 60

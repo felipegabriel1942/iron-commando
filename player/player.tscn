@@ -248,6 +248,8 @@ shader_parameter/active = false
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=287460810]
+collision_layer = 16
+collision_mask = 32
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1854669178]
@@ -278,6 +280,8 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(-0.5, 2)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=129917198]
 
 [connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
 
