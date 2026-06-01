@@ -14,7 +14,7 @@ func handle_animation() -> void:
 		
 	var direction := get_animation_direction()
 	
-	play_animation(animation_prefix + direction + "_" + get_parent().equipped_weapon.data.animation_suffix)
+	play_animation(animation_prefix + direction + "_" + get_parent().weapon.data.animation_suffix)
 	
 func play_animation(animation_name: String) -> void:
 	if current_animation == animation_name:

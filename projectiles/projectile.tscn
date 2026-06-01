@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://diorldrhdpg0e" path="res://projectiles/projectile.gd" id="1_wrf7x"]
 
 [node name="Projectile" type="Area2D" unique_id=292362130]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_wrf7x")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=339535625]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

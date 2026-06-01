@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://jp1luwtkpqpa"]
+
+[ext_resource type="Script" uid="uid://bqvt5upe7yq48" path="res://world_objects/world_object.gd" id="1_16ptj"]
+[ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_vdiac"]
+
+[node name="WorldObject" type="Node2D" unique_id=924251695]
+script = ExtResource("1_16ptj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1184112135]
+
+[node name="CoverArea" type="Area2D" parent="." unique_id=851131821]
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("2_vdiac")]

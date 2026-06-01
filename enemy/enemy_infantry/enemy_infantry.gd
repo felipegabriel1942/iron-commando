@@ -10,6 +10,7 @@ var equipped_weapon: Weapon
 var player: Player
 var invencibility := false
 var hit_points := 3
+var is_on_screen := false
 
 func _ready() -> void:
 	equipped_weapon = EnemyAssaultRifle.new()
@@ -57,9 +58,14 @@ func flash_sprite() -> void:
 func _on_shoot_timer_timeout() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
-	if player == null:
+	print(is_on_screen)
+	
+	if player == null or !is_on_screen:
 		return
 		
 	var direction := (player.global_position - global_position).normalized()
 		
 	equipped_weapon.try_shoot(self, direction)
+
+func _on_screen_entered() -> void:
+	is_on_screen = true

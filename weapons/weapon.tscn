@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dh73n03igap2j"]
+
+[ext_resource type="Script" uid="uid://cnvxcdfgpvdl0" path="res://weapons/weapon.gd" id="1_rma5x"]
+
+[node name="Weapon" type="Node2D" unique_id=602882196]
+script = ExtResource("1_rma5x")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=577478938]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=325897460]

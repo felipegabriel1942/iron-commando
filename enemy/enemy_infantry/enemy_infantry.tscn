@@ -76,6 +76,8 @@ animations = [{
 }]
 
 [node name="EnemyInfantry" type="CharacterBody2D" unique_id=596986420]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_dlbxo")
 
 [node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("2_p0uk1")]
@@ -98,7 +100,10 @@ autoplay = "idle_side_assault_rifle"
 wait_time = 0.8
 autostart = true
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1526778435]
+
 [connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
 
 [editable path="HurtboxComponent"]

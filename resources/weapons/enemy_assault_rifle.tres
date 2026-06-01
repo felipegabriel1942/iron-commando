@@ -8,4 +8,5 @@ script = ExtResource("1_1hcba")
 weapon_name = "Assault Rifle"
 animation_suffix = "assault_rifle"
 projectile = ExtResource("1_trngk")
+fire_rate = 0.3
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

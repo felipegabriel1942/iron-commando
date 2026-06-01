@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dctud508agvq1"]
+
+[ext_resource type="PackedScene" uid="uid://jp1luwtkpqpa" path="res://world_objects/world_object.tscn" id="1_xahbd"]
+[ext_resource type="Texture2D" uid="uid://cvt3ks1l0sgqg" path="res://assets/art/Tileset/tileset.png" id="2_pul12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pul12"]
+size = Vector2(16, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba5e2"]
+size = Vector2(24, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uupi"]
+size = Vector2(15, 20)
+
+[node name="Box" unique_id=924251695 instance=ExtResource("1_xahbd")]
+z_index = 1
+y_sort_enabled = true
+
+[node name="StaticBody2D" parent="." index="0" unique_id=1184112135]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0" unique_id=40319925]
+z_index = 1
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pul12")
+
+[node name="CoverArea" parent="." index="1" unique_id=851131821]
+collision_layer = 128
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoverArea" index="0" unique_id=1349105743]
+z_index = 1
+shape = SubResource("RectangleShape2D_ba5e2")
+debug_color = Color(0.2158018, 0.6249248, 0.39859134, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1229667601]
+texture = ExtResource("2_pul12")
+region_enabled = true
+region_rect = Rect2(496, 59, 15.662964, 21)
+
+[node name="HurtboxComponent" parent="." index="3" unique_id=1662772938]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
+shape = SubResource("RectangleShape2D_3uupi")
+
+[connection signal="area_entered" from="CoverArea" to="." method="_on_cover_entered"]
+[connection signal="area_exited" from="CoverArea" to="." method="_on_cover_exited"]
+[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_entered"]
+
+[editable path="HurtboxComponent"]
