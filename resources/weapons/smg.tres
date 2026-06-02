@@ -9,7 +9,7 @@ script = ExtResource("1_yxm1h")
 weapon_name = "SMG"
 animation_suffix = "smg"
 projectile = ExtResource("1_v2t4f")
-fire_rate = 0.1
+fire_rate = 0.15
 shot_sound = ExtResource("3_f1xbn")
 muzzle_positions = Dictionary[String, Vector2]({
 "down": Vector2(-5, 16),
