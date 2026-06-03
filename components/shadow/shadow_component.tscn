@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bnojfyb4whg2o"]
+
+[ext_resource type="Texture2D" uid="uid://ceur6g3syiydq" path="res://assets/art/character_shadow.png" id="1_egiyi"]
+
+[node name="ShadowComponent" type="Sprite2D" unique_id=1412329926]
+z_index = -1
+texture = ExtResource("1_egiyi")
+centered = false
+offset = Vector2(-8, -15)

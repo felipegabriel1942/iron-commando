@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dirtn7msawpug" path="res://assets/art/Characters/Player/player_Assault_rifle.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b1h4k51u86m73" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="2_2ieo8"]
 [ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="3_g1dw6"]
 [ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="4_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://ciqody0bnm17o" path="res://assets/art/Characters/Player/player_SMG.png" id="4_rgyib"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dh73n03igap2j" path="res://weapons/weapon.tscn" id="6_g6k8r"]
 [ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="8_rgyib"]
 [ext_resource type="Script" uid="uid://dwwyyp6qdc1i6" path="res://player/camera.gd" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://dov1vcwqmwh70" path="res://components/cover_area/cover_area_component.tscn" id="10_8t03j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjkh3"]
 shader = ExtResource("4_qjkh3")
@@ -476,12 +478,16 @@ shader = ExtResource("4_qjkh3")
 shader_parameter/active = false
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t03j"]
+size = Vector2(48, 48)
+
 [node name="Player" type="CharacterBody2D" unique_id=287460810]
 collision_layer = 16
 collision_mask = 96
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1854669178]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_qjkh3")
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"move_down_smg"
@@ -491,6 +497,17 @@ frame_progress = 0.70226055
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=152480364]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=717789559]
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("9_hg6s5")
+
+[node name="Weapon" parent="." unique_id=602882196 node_paths=PackedStringArray("cover_area") instance=ExtResource("6_g6k8r")]
+data = ExtResource("8_rgyib")
+cover_area = NodePath("../CoverAreaComponent")
+burst_shoot = false
+burst_shoot_qtd = 1
 
 [node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("3_g1dw6")]
 material = SubResource("ShaderMaterial_g6k8r")
@@ -502,14 +519,15 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(-0.5, 2)
 
-[node name="Weapon" parent="." unique_id=602882196 instance=ExtResource("6_g6k8r")]
-data = ExtResource("8_rgyib")
+[node name="CoverAreaComponent" parent="." unique_id=2045004331 instance=ExtResource("10_8t03j")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=717789559]
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("9_hg6s5")
+[node name="CollisionShape2D" parent="CoverAreaComponent" index="0" unique_id=1223954462]
+shape = SubResource("RectangleShape2D_8t03j")
+
+[node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("2_2ieo8")]
+position = Vector2(0, 17)
 
 [connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="HurtboxComponent"]
+[editable path="CoverAreaComponent"]

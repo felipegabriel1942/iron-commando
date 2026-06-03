@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dov1vcwqmwh70"]
+
+[ext_resource type="Script" uid="uid://b2812w3refxmk" path="res://components/cover_area/cover_area_component.gd" id="1_lo3km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqnku"]
+
+[node name="CoverAreaComponent" type="Area2D" unique_id=2045004331]
+collision_layer = 128
+collision_mask = 224
+script = ExtResource("1_lo3km")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223954462]
+shape = SubResource("RectangleShape2D_aqnku")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

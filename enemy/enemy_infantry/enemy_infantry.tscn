@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://nf8tljglinnf" path="res://enemy/enemy_infantry/enemy_infantry.gd" id="1_dlbxo"]
 [ext_resource type="Texture2D" uid="uid://o4ux4h1740qc" path="res://assets/art/Characters/Enemies/enemy_assault_rifle.png" id="2_elf6c"]
+[ext_resource type="PackedScene" uid="uid://dh73n03igap2j" path="res://weapons/weapon.tscn" id="2_mvox7"]
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_p0uk1"]
 [ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="3_t6tag"]
+[ext_resource type="Resource" uid="uid://blyrwphuvtkdn" path="res://resources/weapons/assault_rifle.tres" id="3_yxxlh"]
+[ext_resource type="PackedScene" uid="uid://dov1vcwqmwh70" path="res://components/cover_area/cover_area_component.tscn" id="5_0iwyx"]
 [ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="5_mvox7"]
+[ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="9_d58sy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iwyx"]
+size = Vector2(48, 56)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dlbxo"]
 resource_local_to_scene = true
@@ -80,11 +87,24 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_dlbxo")
 
+[node name="Weapon" parent="." unique_id=602882196 node_paths=PackedStringArray("cover_area") instance=ExtResource("2_mvox7")]
+data = ExtResource("3_yxxlh")
+cover_area = NodePath("../CoverAreaComponent")
+
 [node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("2_p0uk1")]
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(0.5, 3)
+
+[node name="CoverAreaComponent" parent="." unique_id=2045004331 instance=ExtResource("5_0iwyx")]
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="CoverAreaComponent" index="0" unique_id=1223954462]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_0iwyx")
+
+[node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("5_mvox7")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826973132]
 material = SubResource("ShaderMaterial_dlbxo")
@@ -92,18 +112,20 @@ sprite_frames = SubResource("SpriteFrames_w6omo")
 animation = &"idle_up_assault_rifle"
 autoplay = "idle_side_assault_rifle"
 
-[node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("5_mvox7")]
-
 [node name="WeaponMuzzle" type="Marker2D" parent="." unique_id=1978447752]
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1046545415]
-wait_time = 0.8
-autostart = true
+wait_time = 2.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1526778435]
+
+[node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("9_d58sy")]
+position = Vector2(0, 16)
 
 [connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
 
+[editable path="Weapon"]
 [editable path="HurtboxComponent"]
+[editable path="CoverAreaComponent"]

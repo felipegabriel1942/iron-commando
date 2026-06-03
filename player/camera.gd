@@ -12,6 +12,9 @@ func _ready() -> void:
 	adjust_camera_limits()
 
 func _process(delta: float) -> void:
+	handle_camera_movement()
+	
+func handle_camera_movement() -> void:
 	var direction = center_pos.direction_to(get_local_mouse_position())
 	var target_pos = center_pos + direction * target_distance
 	

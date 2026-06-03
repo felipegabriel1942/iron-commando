@@ -3,20 +3,26 @@ class_name EnemyInfantry
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon_muzzle: Marker2D = $WeaponMuzzle
+@onready var weapon: Weapon = $Weapon
+@onready var shoot_timer: Timer = $ShootTimer
 
 var facing_direction := "down"
 var current_animation := ""
-var equipped_weapon: Weapon
 var player: Player
 var invencibility := false
-var hit_points := 3
+var hit_points := 2
 var is_on_screen := false
 
 func _ready() -> void:
-	equipped_weapon = EnemyAssaultRifle.new()
+	randomize()
+	
+	start_shooter_timer()
 	
 func _physics_process(delta: float) -> void:
 	update_facing_direction()
+	
+func start_shooter_timer() -> void:
+	shoot_timer.start()
 
 func update_facing_direction() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -33,7 +39,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		
 func take_damage() -> void:
-	if !invencibility:
+	if !invencibility or is_on_screen:
 		
 		flash_sprite()
 		
@@ -58,14 +64,12 @@ func flash_sprite() -> void:
 func _on_shoot_timer_timeout() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
-	print(is_on_screen)
-	
 	if player == null or !is_on_screen:
 		return
 		
 	var direction := (player.global_position - global_position).normalized()
-		
-	equipped_weapon.try_shoot(self, direction)
+	
+	weapon.shoot(direction)
 
 func _on_screen_entered() -> void:
 	is_on_screen = true
