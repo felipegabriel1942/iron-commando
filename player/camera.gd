@@ -7,6 +7,7 @@ var center_pos = position
 var ground_layer: TileMapLayer
 
 func _ready() -> void:
+	GameFeelManager.camera = self
 	ground_layer = get_tree().current_scene.get_node("%Ground")
 	
 	adjust_camera_limits()

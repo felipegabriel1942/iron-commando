@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://u6eukr6c4l47"]
+
+[ext_resource type="Texture2D" uid="uid://bqmd5qdqs7f74" path="res://assets/art/dust.png" id="1_fai68"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_257vn"]
+particle_flag_disable_z = true
+spread = 20.0
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.19999999
+scale_max = 0.39999998
+
+[node name="DustEffect" type="GPUParticles2D" unique_id=1531029626]
+emitting = false
+texture = ExtResource("1_fai68")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_257vn")

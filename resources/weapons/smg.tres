@@ -9,17 +9,17 @@ script = ExtResource("1_yxm1h")
 weapon_name = "SMG"
 animation_suffix = "smg"
 projectile = ExtResource("1_v2t4f")
-fire_rate = 0.15
+fire_rate = 0.1
 shot_sound = ExtResource("3_f1xbn")
 muzzle_positions = Dictionary[String, Vector2]({
-"down": Vector2(-5, 16),
-"down_left": Vector2(-9, 14),
-"down_right": Vector2(9, 14),
-"left": Vector2(-12, 0),
-"right": Vector2(12, 0),
-"up": Vector2(5, -10),
-"up_left": Vector2(-13, -8),
-"up_right": Vector2(13, -8)
+"down": Vector2(-2, 2),
+"down_left": Vector2(0, 0),
+"down_right": Vector2(0, 0),
+"left": Vector2(0, 0),
+"right": Vector2(-3, 0),
+"up": Vector2(5, 5),
+"up_left": Vector2(0, 0),
+"up_right": Vector2(0, 0)
 })
-recoil_range = 10
+recoil_range = 13
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

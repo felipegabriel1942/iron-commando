@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://blyrwphuvtkdn"]
 
-[ext_resource type="PackedScene" uid="uid://1g4ch30jy34u" path="res://projectiles/weapon_bullet/enemy_weapon_bullet.tscn" id="1_0nnpp"]
+[ext_resource type="PackedScene" uid="uid://bklv7rhjdsqse" path="res://projectiles/weapon_bullet/player_weapon_bullet.tscn" id="1_0nnpp"]
 [ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_su3sc"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_0nnpp"]
 
@@ -9,17 +9,17 @@ script = ExtResource("1_su3sc")
 weapon_name = "Assault Rifle"
 animation_suffix = "assault_rifle"
 projectile = ExtResource("1_0nnpp")
-fire_rate = 0.3
+fire_rate = 0.15
 shot_sound = ExtResource("3_0nnpp")
 muzzle_positions = Dictionary[String, Vector2]({
-"down": Vector2(-5, 16),
-"down_left": Vector2(-9, 14),
-"down_right": Vector2(9, 14),
-"left": Vector2(-12, 0),
-"right": Vector2(12, 0),
-"up": Vector2(5, -10),
-"up_left": Vector2(-13, -8),
-"up_right": Vector2(13, -8)
+"down": Vector2(0, 0),
+"down_left": Vector2(0, 0),
+"down_right": Vector2(0, 0),
+"left": Vector2(0, 0),
+"right": Vector2(0, 0),
+"up": Vector2(0, 0),
+"up_left": Vector2(0, 0),
+"up_right": Vector2(0, 0)
 })
 recoil_range = 3
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

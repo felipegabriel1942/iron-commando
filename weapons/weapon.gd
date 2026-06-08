@@ -27,7 +27,7 @@ func shoot(direction) -> void:
 		return
 		
 	can_shoot = false
-
+	
 	if burst_shoot:
 		for i in range(burst_shoot_qtd):
 			await get_tree().create_timer(0.15).timeout

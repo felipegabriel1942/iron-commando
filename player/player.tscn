@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ciqody0bnm17o" path="res://assets/art/Characters/Player/player_SMG.png" id="4_rgyib"]
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dh73n03igap2j" path="res://weapons/weapon.tscn" id="6_g6k8r"]
-[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="8_rgyib"]
+[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="7_ebec5"]
 [ext_resource type="Script" uid="uid://dwwyyp6qdc1i6" path="res://player/camera.gd" id="9_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://dov1vcwqmwh70" path="res://components/cover_area/cover_area_component.tscn" id="10_8t03j"]
+[ext_resource type="PackedScene" uid="uid://cvvlg3i6i8cqx" path="res://components/knockback/knockback_component.tscn" id="11_ebec5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qjkh3"]
 shader = ExtResource("4_qjkh3")
@@ -484,6 +485,7 @@ size = Vector2(48, 48)
 [node name="Player" type="CharacterBody2D" unique_id=287460810]
 collision_layer = 16
 collision_mask = 96
+motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1854669178]
@@ -504,10 +506,9 @@ position_smoothing_enabled = true
 script = ExtResource("9_hg6s5")
 
 [node name="Weapon" parent="." unique_id=602882196 node_paths=PackedStringArray("cover_area") instance=ExtResource("6_g6k8r")]
-data = ExtResource("8_rgyib")
+data = ExtResource("7_ebec5")
 cover_area = NodePath("../CoverAreaComponent")
 burst_shoot = false
-burst_shoot_qtd = 1
 
 [node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("3_g1dw6")]
 material = SubResource("ShaderMaterial_g6k8r")
@@ -523,6 +524,9 @@ position = Vector2(-0.5, 2)
 
 [node name="CollisionShape2D" parent="CoverAreaComponent" index="0" unique_id=1223954462]
 shape = SubResource("RectangleShape2D_8t03j")
+
+[node name="KnockbackComponent" parent="." unique_id=889611878 node_paths=PackedStringArray("hurtbox_component") instance=ExtResource("11_ebec5")]
+hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("2_2ieo8")]
 position = Vector2(0, 17)

@@ -4,10 +4,13 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = $Camera2D
 @onready var weapon: Weapon = $Weapon
+@onready var knockback_component: KnockbackComponent = $KnockbackComponent
 
 var facing_direction := "down"
 var move_speed := 60
 var current_animation := ""
+var hits := 0
+var movement_velocity := Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("player")
@@ -19,6 +22,10 @@ func _physics_process(delta: float) -> void:
 	handle_movement()
 	update_facing_direction()
 	
+	velocity = (
+		movement_velocity + knockback_component.knockback_velocity
+	)
+
 	move_and_slide()
 	
 func handle_shoot() -> void:
@@ -35,8 +42,8 @@ func handle_movement() -> void:
 	
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
-		
-	velocity = direction * move_speed
+	
+	movement_velocity = direction * move_speed
 
 func update_facing_direction() -> void:
 	var mouse_direction := (get_global_mouse_position() - global_position).normalized()
@@ -44,12 +51,7 @@ func update_facing_direction() -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is Projectile:
-		flash_sprite()
+		GameFeelManager.flash_shader(animated_sprite)
+		GameFeelManager.shake_camera()
+		
 		area.queue_free()
-
-func flash_sprite() -> void:
-	animated_sprite.material.set_shader_parameter("active", true)
-	
-	await get_tree().create_timer(0.1).timeout
-
-	animated_sprite.material.set_shader_parameter("active", false)

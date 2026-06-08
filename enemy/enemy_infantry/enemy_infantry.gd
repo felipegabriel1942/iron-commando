@@ -5,6 +5,7 @@ class_name EnemyInfantry
 @onready var weapon_muzzle: Marker2D = $WeaponMuzzle
 @onready var weapon: Weapon = $Weapon
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var knockback_component: KnockbackComponent = $KnockbackComponent
 
 var facing_direction := "down"
 var current_animation := ""
@@ -12,17 +13,20 @@ var player: Player
 var invencibility := false
 var hit_points := 2
 var is_on_screen := false
+var invencibility_time := 0.3
+var movement_velocity := Vector2.ZERO
 
-func _ready() -> void:
-	randomize()
-	
-	start_shooter_timer()
-	
+const BLOOD_EFFECT = preload("uid://durt75xua78hy")
+const BULLET_IMPACT = preload("uid://bxcwqg2m8yxib")
+
 func _physics_process(delta: float) -> void:
 	update_facing_direction()
 	
-func start_shooter_timer() -> void:
-	shoot_timer.start()
+	velocity = (
+		movement_velocity + knockback_component.knockback_velocity
+	)
+	
+	move_and_slide()
 
 func update_facing_direction() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -35,31 +39,27 @@ func update_facing_direction() -> void:
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is Projectile:
-		take_damage()
+		take_damage(area.position, area.direction)
 		area.queue_free()
 		
-func take_damage() -> void:
-	if !invencibility or is_on_screen:
-		
-		flash_sprite()
-		
+func take_damage(hit_position: Vector2, hit_direction: Vector2) -> void:
+	if !invencibility and is_on_screen:
+			
 		hit_points -= 1
+		
+		VfxManager.generate_particle_effect(BLOOD_EFFECT, hit_position, hit_direction.angle())
+		SfxManager.play_sfx(BULLET_IMPACT)
+		GameFeelManager.hit_stop(1)
+		GameFeelManager.flash_shader(animated_sprite)
 		
 		if hit_points <= 0:
 			queue_free()
 		
 		invencibility = true
 		
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(invencibility_time).timeout
 		
 		invencibility = false
-
-func flash_sprite() -> void:
-	for i in range(2):
-		animated_sprite.material.set_shader_parameter("active", true)
-		await get_tree().create_timer(0.1).timeout
-		animated_sprite.material.set_shader_parameter("active", false)
-		await get_tree().create_timer(0.1).timeout
 
 func _on_shoot_timer_timeout() -> void:
 	player = get_tree().get_first_node_in_group("player")

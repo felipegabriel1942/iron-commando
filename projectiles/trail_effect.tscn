@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c08slj4onkv4c"]
+
+[ext_resource type="Script" uid="uid://cdr4oj058o5y0" path="res://projectiles/trail_effect.gd" id="1_fh603"]
+
+[sub_resource type="Curve" id="Curve_1cxs2"]
+_data = [Vector2(0, 0.23953885), 0.0, 0.0, 0, 0, Vector2(0.9858658, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_1cxs2"]
+colors = PackedColorArray(1, 1, 0.37254903, 1, 0.9764706, 0.023529412, 0.23529412, 1)
+
+[node name="TrailEffect" type="Line2D" unique_id=1751846520]
+show_behind_parent = true
+top_level = true
+z_index = 5
+y_sort_enabled = true
+points = PackedVector2Array(3, 2, 74, 59)
+width = 2.0
+width_curve = SubResource("Curve_1cxs2")
+gradient = SubResource("Gradient_1cxs2")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_fh603")
+
+[node name="Timer" type="Timer" parent="." unique_id=524295572]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

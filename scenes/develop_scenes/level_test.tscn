@@ -8,6 +8,9 @@
 [node name="LevelTest" unique_id=243948734 instance=ExtResource("1_beyne")]
 script = ExtResource("2_w7lb0")
 
+[node name="VFX" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="0" unique_id=1384545855]
+unique_name_in_owner = true
+
 [node name="Ground" type="TileMapLayer" parent="YSortRoot/MapLayers" parent_id_path=PackedInt32Array(1934244028) index="0" unique_id=88975452]
 unique_name_in_owner = true
 z_index = -1
@@ -36,30 +39,36 @@ position = Vector2(40, -157)
 [node name="EnemyInfantry02" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="1" unique_id=1659357053 instance=ExtResource("4_ibxoa")]
 position = Vector2(-54, 10)
 
-[node name="EnemyInfantry03" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="2" unique_id=919849689 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry10" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="2" unique_id=1799211844 instance=ExtResource("4_ibxoa")]
+position = Vector2(53, 90)
+
+[node name="EnemyInfantry11" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="3" unique_id=2132324246 instance=ExtResource("4_ibxoa")]
+position = Vector2(-117, 14)
+
+[node name="EnemyInfantry03" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="4" unique_id=919849689 instance=ExtResource("4_ibxoa")]
 position = Vector2(-58, 96)
 
-[node name="EnemyInfantry04" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="3" unique_id=716918607 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry04" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="5" unique_id=716918607 instance=ExtResource("4_ibxoa")]
 position = Vector2(57, 9)
 
-[node name="EnemyInfantry05" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="4" unique_id=2035803745 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry05" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="6" unique_id=2035803745 instance=ExtResource("4_ibxoa")]
 position = Vector2(40, -77)
 
-[node name="EnemyInfantry06" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="5" unique_id=1475656823 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry06" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="7" unique_id=1475656823 instance=ExtResource("4_ibxoa")]
 position = Vector2(-61, -185)
 
-[node name="EnemyInfantry07" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="6" unique_id=1980195594 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry07" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="8" unique_id=1980195594 instance=ExtResource("4_ibxoa")]
 position = Vector2(-184, -396)
 
-[node name="EnemyInfantry08" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="7" unique_id=1403728171 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry08" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="9" unique_id=1403728171 instance=ExtResource("4_ibxoa")]
 position = Vector2(-196, -187)
 
-[node name="EnemyInfantry09" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="8" unique_id=383206249 instance=ExtResource("4_ibxoa")]
+[node name="EnemyInfantry09" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="10" unique_id=383206249 instance=ExtResource("4_ibxoa")]
 position = Vector2(-166, -293)
 
-[node name="WorldObjects" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="2" unique_id=1941445325]
+[node name="WorldObjects" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="3" unique_id=1941445325]
 
 [node name="Boxes" type="Node2D" parent="YSortRoot/WorldObjects" index="0" unique_id=31950403]
 
-[node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="3" unique_id=287460810]
-position = Vector2(-162, 86)
+[node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="4" unique_id=287460810]
+position = Vector2(-67, -439)

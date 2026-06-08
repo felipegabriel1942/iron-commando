@@ -9,7 +9,7 @@
 	[] Particulas quando os inimigos forem atingidos
 	[] Efeito de impacto quando o tiro se chocar com paredes/objetos
 	[x] Colocar sombra nos personagens
-	[] Efeito de "trail" nos tiros
+	[x] Efeito de "trail" nos tiros
 	[] Acrescentar screen shake, quando jogador for atingido
 	[] Acrescentar capsulas sendo ejetadas das armas ao atirar
 	

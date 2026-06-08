@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cvvlg3i6i8cqx"]
+
+[ext_resource type="Script" uid="uid://ct2v3ch2l0tpg" path="res://components/knockback/knockback_component.gd" id="1_rslr4"]
+
+[node name="KnockbackComponent" type="Node2D" unique_id=889611878]
+script = ExtResource("1_rslr4")
