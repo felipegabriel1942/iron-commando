@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://blyrwphuvtkdn"]
 
-[ext_resource type="PackedScene" uid="uid://bklv7rhjdsqse" path="res://projectiles/weapon_bullet/player_weapon_bullet.tscn" id="1_0nnpp"]
+[ext_resource type="PackedScene" uid="uid://b07un34cbnjfb" path="res://projectiles/bullet.tscn" id="1_0nnpp"]
 [ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_su3sc"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_0nnpp"]
 

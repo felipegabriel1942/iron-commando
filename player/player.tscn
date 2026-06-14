@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ciqody0bnm17o" path="res://assets/art/Characters/Player/player_SMG.png" id="4_rgyib"]
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dh73n03igap2j" path="res://weapons/weapon.tscn" id="6_g6k8r"]
-[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="7_ebec5"]
+[ext_resource type="Resource" uid="uid://blyrwphuvtkdn" path="res://resources/weapons/assault_rifle.tres" id="7_ebec5"]
 [ext_resource type="Script" uid="uid://dwwyyp6qdc1i6" path="res://player/camera.gd" id="9_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://dov1vcwqmwh70" path="res://components/cover_area/cover_area_component.tscn" id="10_8t03j"]
 [ext_resource type="PackedScene" uid="uid://cvvlg3i6i8cqx" path="res://components/knockback/knockback_component.tscn" id="11_ebec5"]

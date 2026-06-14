@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://whvkw3m74al8"]
 
 [ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_1hcba"]
-[ext_resource type="PackedScene" uid="uid://1g4ch30jy34u" path="res://projectiles/weapon_bullet/enemy_weapon_bullet.tscn" id="1_trngk"]
+[ext_resource type="PackedScene" uid="uid://b07un34cbnjfb" path="res://projectiles/bullet.tscn" id="1_1hd8y"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_1hd8y"]
 
 [resource]
 script = ExtResource("1_1hcba")
 weapon_name = "Assault Rifle"
 animation_suffix = "assault_rifle"
-projectile = ExtResource("1_trngk")
+projectile = ExtResource("1_1hd8y")
 fire_rate = 0.3
 shot_sound = ExtResource("3_1hd8y")
 muzzle_positions = Dictionary[String, Vector2]({

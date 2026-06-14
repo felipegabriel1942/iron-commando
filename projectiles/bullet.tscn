@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b07un34cbnjfb"]
+
+[ext_resource type="Script" uid="uid://bhykpkim67n27" path="res://projectiles/bullet.gd" id="1_4ambd"]
+[ext_resource type="PackedScene" uid="uid://soapublae74b" path="res://components/hitbox/hitbox.tscn" id="1_a3dlt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3dlt"]
+radius = 3.1622777
+
+[node name="Bullet" type="Node2D" unique_id=1100212751]
+script = ExtResource("1_4ambd")
+
+[node name="Hitbox" parent="." unique_id=1882853712 instance=ExtResource("1_a3dlt")]
+collision_layer = 0
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1928743238]
+shape = SubResource("CircleShape2D_a3dlt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=983555281]
+rect = Rect2(-3, -3, 6, 6)
+
+[connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

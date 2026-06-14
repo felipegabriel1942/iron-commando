@@ -16,4 +16,4 @@ func _physics_process(delta: float) -> void:
 	)
 	
 func on_hurt(area: Area2D) -> void:
-	knockback_velocity = area.direction.normalized() * knockback_force
+	knockback_velocity = area.owner.direction.normalized() * knockback_force

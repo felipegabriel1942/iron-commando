@@ -83,9 +83,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x41ut"]
+size = Vector2(11, 22)
+
 [node name="EnemyInfantry" type="CharacterBody2D" unique_id=596986420]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 256
+collision_mask = 96
 motion_mode = 1
 script = ExtResource("1_dlbxo")
 
@@ -127,6 +132,10 @@ autostart = true
 
 [node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("9_d58sy")]
 position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=511634667]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_x41ut")
 
 [connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

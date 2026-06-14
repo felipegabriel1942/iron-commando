@@ -50,8 +50,8 @@ func update_facing_direction() -> void:
 	facing_direction = DirectionUtils.get_facing_direction(mouse_direction)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area is Projectile:
+	if area.get_parent() is Bullet:
 		GameFeelManager.flash_shader(animated_sprite)
 		GameFeelManager.shake_camera()
 		
-		area.queue_free()
+		area.get_parent().queue_free()

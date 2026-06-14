@@ -11,13 +11,16 @@ var facing_direction := "down"
 var current_animation := ""
 var player: Player
 var invencibility := false
-var hit_points := 2
+var hit_points :=5
 var is_on_screen := false
 var invencibility_time := 0.3
 var movement_velocity := Vector2.ZERO
 
 const BLOOD_EFFECT = preload("uid://durt75xua78hy")
 const BULLET_IMPACT = preload("uid://bxcwqg2m8yxib")
+
+func _ready() -> void:
+	add_to_group("enemy")
 
 func _physics_process(delta: float) -> void:
 	update_facing_direction()
@@ -38,9 +41,9 @@ func update_facing_direction() -> void:
 	facing_direction = DirectionUtils.get_facing_direction(direction)
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area is Projectile:
-		take_damage(area.position, area.direction)
-		area.queue_free()
+	if area.owner is Bullet:
+		take_damage(area.owner.position, area.owner.direction)
+		area.owner.queue_free()
 		
 func take_damage(hit_position: Vector2, hit_direction: Vector2) -> void:
 	if !invencibility and is_on_screen:
