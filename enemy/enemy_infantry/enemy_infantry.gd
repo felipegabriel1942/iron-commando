@@ -11,7 +11,6 @@ var facing_direction := "down"
 var current_animation := ""
 var player: Player
 var invencibility := false
-var hit_points :=5
 var is_on_screen := false
 var invencibility_time := 0.3
 var movement_velocity := Vector2.ZERO
@@ -40,30 +39,6 @@ func update_facing_direction() -> void:
 	var direction := (player.global_position - global_position).normalized()
 	facing_direction = DirectionUtils.get_facing_direction(direction)
 	
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.owner is Bullet:
-		take_damage(area.owner.position, area.owner.direction)
-		area.owner.queue_free()
-		
-func take_damage(hit_position: Vector2, hit_direction: Vector2) -> void:
-	if !invencibility and is_on_screen:
-			
-		hit_points -= 1
-		
-		VfxManager.generate_particle_effect(BLOOD_EFFECT, hit_position, hit_direction.angle())
-		SfxManager.play_sfx(BULLET_IMPACT)
-		GameFeelManager.hit_stop(1)
-		GameFeelManager.flash_shader(animated_sprite)
-		
-		if hit_points <= 0:
-			queue_free()
-		
-		invencibility = true
-		
-		await get_tree().create_timer(invencibility_time).timeout
-		
-		invencibility = false
-
 func _on_shoot_timer_timeout() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
@@ -76,3 +51,19 @@ func _on_shoot_timer_timeout() -> void:
 
 func _on_screen_entered() -> void:
 	is_on_screen = true
+
+func _on_died() -> void:
+	queue_free()
+
+func _on_damaged(damage_data: Variant) -> void:
+	if !invencibility and is_on_screen:	
+		VfxManager.generate_particle_effect(BLOOD_EFFECT, damage_data.position, damage_data.direction.angle())
+		SfxManager.play_sfx(BULLET_IMPACT)
+		GameFeelManager.hit_stop(1)
+		GameFeelManager.flash_shader(animated_sprite)
+		
+		invencibility = true
+		
+		await get_tree().create_timer(invencibility_time).timeout
+		
+		invencibility = false

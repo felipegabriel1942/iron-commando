@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b07un34cbnjfb"]
 
 [ext_resource type="Script" uid="uid://bhykpkim67n27" path="res://projectiles/bullet.gd" id="1_4ambd"]
-[ext_resource type="PackedScene" uid="uid://soapublae74b" path="res://components/hitbox/hitbox.tscn" id="1_a3dlt"]
+[ext_resource type="PackedScene" uid="uid://soapublae74b" path="res://components/hitbox/hitbox_component.tscn" id="1_a3dlt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3dlt"]
 radius = 3.1622777

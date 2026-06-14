@@ -21,5 +21,4 @@ muzzle_positions = Dictionary[String, Vector2]({
 "up_left": Vector2(0, 0),
 "up_right": Vector2(0, 0)
 })
-recoil_range = 3
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

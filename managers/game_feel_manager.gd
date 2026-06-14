@@ -31,16 +31,17 @@ func flash_shader(
 		return
 		
 	for i in times:
-		node.material.set_shader_parameter(parameter_name, true)
-		
-		await get_tree().create_timer(duration).timeout
-		
-		if !is_instance_valid(node):
-			return
+		if is_instance_valid(node):
+			node.material.set_shader_parameter(parameter_name, true)
 			
-		node.material.set_shader_parameter(parameter_name, false)
-		
-		await get_tree().create_timer(duration).timeout
+			await get_tree().create_timer(duration).timeout
+			
+			if !is_instance_valid(node):
+				return
+				
+			node.material.set_shader_parameter(parameter_name, false)
+			
+			await get_tree().create_timer(duration).timeout
 
 
 func shake_camera(intensity := 5.0) -> void:

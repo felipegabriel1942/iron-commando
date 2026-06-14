@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="3_t6tag"]
 [ext_resource type="PackedScene" uid="uid://dov1vcwqmwh70" path="res://components/cover_area/cover_area_component.tscn" id="5_0iwyx"]
 [ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="5_mvox7"]
+[ext_resource type="PackedScene" uid="uid://biq4xe1twa4pe" path="res://components/health/health_component.tscn" id="6_82j7p"]
 [ext_resource type="PackedScene" uid="uid://cvvlg3i6i8cqx" path="res://components/knockback/knockback_component.tscn" id="6_x41ut"]
 [ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="9_d58sy"]
 
@@ -98,8 +99,11 @@ script = ExtResource("1_dlbxo")
 data = ExtResource("3_d58sy")
 cover_area = NodePath("../CoverAreaComponent")
 
-[node name="HurtboxComponent" parent="." unique_id=1662772938 instance=ExtResource("2_p0uk1")]
+[node name="HealthComponent" parent="." unique_id=1019111412 instance=ExtResource("6_82j7p")]
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component") instance=ExtResource("2_p0uk1")]
 collision_mask = 2
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(2, 2)
@@ -137,7 +141,8 @@ position = Vector2(0, 16)
 position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_x41ut")
 
-[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
+[connection signal="damaged" from="HurtboxComponent" to="." method="_on_damaged"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
 

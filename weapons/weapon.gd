@@ -48,10 +48,18 @@ func create_bullet(direction) -> void:
 	projectile.direction = direction.rotated(recoil)
 	projectile.rotation = angle
 	projectile.origin_cover = is_on_cover
+	
 	projectile.team = get_parent().get_groups()[0]
 	
 	get_tree().current_scene.add_child(projectile)
-
+	
+	projectile.hitbox.damage_data = DamageData.new(
+		1,
+		70,
+		projectile.direction,
+		owner
+	)
+	
 func start_fire_rate_cooldown() -> void:
 	await get_parent().get_tree().create_timer(data.fire_rate).timeout
 	can_shoot = true
