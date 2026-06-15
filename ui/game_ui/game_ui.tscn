@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://5iq4341j41il"]
+
+[ext_resource type="PackedScene" uid="uid://bh7i3nj6qbs01" path="res://ui/game_ui/top_bar/portrait/portrait.tscn" id="1_5rq5h"]
+[ext_resource type="Script" uid="uid://cm78bjjuyb66h" path="res://ui/game_ui/game_ui.gd" id="1_xlhta"]
+[ext_resource type="PackedScene" uid="uid://c6cjt10ool5v7" path="res://ui/game_ui/top_bar/healthbar/healthbar.tscn" id="2_6u1yh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vpjl"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[node name="GameUI" type="CanvasLayer" unique_id=1310803073]
+script = ExtResource("1_xlhta")
+
+[node name="TopHud" type="Panel" parent="." unique_id=1876536819]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vpjl")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopHud" unique_id=1363124356]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopHud/MarginContainer" unique_id=1793558631]
+layout_mode = 2
+alignment = 1
+
+[node name="Portrait" parent="TopHud/MarginContainer/HBoxContainer" unique_id=2017734304 instance=ExtResource("1_5rq5h")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="Healthbar" parent="TopHud/MarginContainer/HBoxContainer" unique_id=1458179539 instance=ExtResource("2_6u1yh")]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.38

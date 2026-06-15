@@ -5,10 +5,10 @@ class_name Player
 @onready var camera: Camera2D = $Camera2D
 @onready var weapon: Weapon = $Weapon
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
+@onready var health_component: HealthComponent = $HealthComponent
 
 var facing_direction := "down"
 var move_speed := 60
-var current_animation := ""
 var movement_velocity := Vector2.ZERO
 
 func _ready() -> void:

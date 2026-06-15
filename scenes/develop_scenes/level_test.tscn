@@ -2,11 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://b1v03ctptc544" path="res://scenes/base_level.tscn" id="1_beyne"]
 [ext_resource type="Script" uid="uid://c5oq6eyfav3kf" path="res://scenes/develop_scenes/level_test.gd" id="2_w7lb0"]
+[ext_resource type="PackedScene" uid="uid://5iq4341j41il" path="res://ui/game_ui/game_ui.tscn" id="3_fnrjn"]
 [ext_resource type="TileSet" uid="uid://drjfxnmoj1u5q" path="res://resources/tile_set.tres" id="3_fu8mc"]
 [ext_resource type="PackedScene" uid="uid://bmyy7t6hkg4u" path="res://enemy/enemy_infantry/enemy_infantry.tscn" id="4_ibxoa"]
 
 [node name="LevelTest" unique_id=243948734 instance=ExtResource("1_beyne")]
 script = ExtResource("2_w7lb0")
+
+[node name="GameUI" parent="." index="0" unique_id=1310803073 instance=ExtResource("3_fnrjn")]
 
 [node name="VFX" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="0" unique_id=1384545855]
 unique_name_in_owner = true
@@ -19,6 +22,7 @@ tile_map_data = PackedByteArray("AADw//z/AAAsABUAAADw//3/AAAsABUAAADw//7/AAAsABU
 tile_set = ExtResource("3_fu8mc")
 
 [node name="Shadows" type="TileMapLayer" parent="YSortRoot/MapLayers" parent_id_path=PackedInt32Array(1934244028) index="1" unique_id=1175963946]
+visible = false
 tile_map_data = PackedByteArray("AAD//wAAAAAiAAMAAAD//wEAAAAiAAMAAAD7/wAAAAAiAAMAAAD7/wEAAAAiAAMAAAD7/wYAAAAiAAMAAAD7/wUAAAAiAAMAAAA=")
 tile_set = ExtResource("3_fu8mc")
 

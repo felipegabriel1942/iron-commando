@@ -7,7 +7,6 @@ class_name EnemyInfantry
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
 
 var facing_direction := "down"
-var current_animation := ""
 var player: Player
 var is_on_screen := false
 var movement_velocity := Vector2.ZERO

@@ -3,7 +3,7 @@ class_name Bullet
 
 @onready var hitbox: HitboxComponent = $Hitbox
 
-var speed := 1000
+var speed := 800
 var direction := Vector2.ZERO
 var origin_cover := false
 var current_trail: TrailEffect

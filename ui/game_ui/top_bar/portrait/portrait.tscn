@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bh7i3nj6qbs01"]
+
+[ext_resource type="Script" uid="uid://bwm4sofe5jirh" path="res://ui/game_ui/top_bar/portrait/portrait.gd" id="1_4gsm2"]
+[ext_resource type="Texture2D" uid="uid://3dtdrk0b5bua" path="res://assets/art/portrait_player_16x24.png" id="1_8c7l0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyn1n"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7lkn"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbb1t"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbpxh"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gsm2"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krcid"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x11f"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro2jy"]
+atlas = ExtResource("1_8c7l0")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0fj1"]
+animations = [{
+"frames": [{
+"duration": 60.0,
+"texture": SubResource("AtlasTexture_qyn1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7lkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbb1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbpxh")
+}],
+"loop": true,
+"name": &"near_death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 60.0,
+"texture": SubResource("AtlasTexture_4gsm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krcid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x11f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro2jy")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 10.0
+}]
+
+[node name="Portrait" type="Control" unique_id=2017734304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gsm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1852555699]
+sprite_frames = SubResource("SpriteFrames_y0fj1")
+animation = &"near_death"
+autoplay = "normal"
+centered = false
