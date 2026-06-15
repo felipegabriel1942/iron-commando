@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name EnemyInfantry
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var weapon_muzzle: Marker2D = $WeaponMuzzle
 @onready var weapon: Weapon = $Weapon
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
@@ -10,9 +9,7 @@ class_name EnemyInfantry
 var facing_direction := "down"
 var current_animation := ""
 var player: Player
-var invencibility := false
 var is_on_screen := false
-var invencibility_time := 0.3
 var movement_velocity := Vector2.ZERO
 
 const BLOOD_EFFECT = preload("uid://durt75xua78hy")
@@ -24,9 +21,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	update_facing_direction()
 	
-	velocity = (
-		movement_velocity + knockback_component.knockback_velocity
-	)
+	if knockback_component:
+		velocity = movement_velocity
+		velocity += knockback_component.knockback_velocity
 	
 	move_and_slide()
 
@@ -56,14 +53,7 @@ func _on_died() -> void:
 	queue_free()
 
 func _on_damaged(damage_data: Variant) -> void:
-	if !invencibility and is_on_screen:	
-		VfxManager.generate_particle_effect(BLOOD_EFFECT, damage_data.position, damage_data.direction.angle())
-		SfxManager.play_sfx(BULLET_IMPACT)
-		GameFeelManager.hit_stop(1)
-		GameFeelManager.flash_shader(animated_sprite)
-		
-		invencibility = true
-		
-		await get_tree().create_timer(invencibility_time).timeout
-		
-		invencibility = false
+	VfxManager.generate_particle_effect(BLOOD_EFFECT, damage_data.position, damage_data.direction.angle())
+	SfxManager.play_sfx(BULLET_IMPACT)
+	GameFeelManager.hit_stop(1)
+	GameFeelManager.flash_shader(animated_sprite)

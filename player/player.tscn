@@ -500,10 +500,12 @@ material = SubResource("ShaderMaterial_g6k8r")
 
 [node name="HealthComponent" parent="." unique_id=1019111412 instance=ExtResource("2_yllr7")]
 
-[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component") instance=ExtResource("4_yw30f")]
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component", "knockback_component") instance=ExtResource("4_yw30f")]
 collision_layer = 4
 collision_mask = 8
 health_component = NodePath("../HealthComponent")
+knockback_component = NodePath("../KnockbackComponent")
+invincibility_duration = 1.0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(-0.5, 2)
@@ -513,8 +515,7 @@ position = Vector2(-0.5, 2)
 [node name="CollisionShape2D" parent="CoverAreaComponent" index="0" unique_id=1223954462]
 shape = SubResource("RectangleShape2D_8t03j")
 
-[node name="KnockbackComponent" parent="." unique_id=889611878 node_paths=PackedStringArray("hurtbox_component") instance=ExtResource("11_ebec5")]
-hurtbox_component = NodePath("../HurtboxComponent")
+[node name="KnockbackComponent" parent="." unique_id=889611878 instance=ExtResource("11_ebec5")]
 
 [node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("2_2ieo8")]
 position = Vector2(0, 17)
@@ -536,7 +537,7 @@ animation = &"move_down_smg"
 autoplay = "idle_side_assault_rifle"
 frame_progress = 0.70226055
 
-[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_area_entered"]
+[connection signal="damaged" from="HurtboxComponent" to="." method="_on_damaged"]
 
 [editable path="HurtboxComponent"]
 [editable path="CoverAreaComponent"]

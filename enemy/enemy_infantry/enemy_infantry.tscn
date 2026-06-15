@@ -101,9 +101,13 @@ cover_area = NodePath("../CoverAreaComponent")
 
 [node name="HealthComponent" parent="." unique_id=1019111412 instance=ExtResource("6_82j7p")]
 
-[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component") instance=ExtResource("2_p0uk1")]
+[node name="KnockbackComponent" parent="." unique_id=889611878 instance=ExtResource("6_x41ut")]
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component", "knockback_component") instance=ExtResource("2_p0uk1")]
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
+knockback_component = NodePath("../KnockbackComponent")
+invincibility_duration = 0.0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 position = Vector2(2, 2)
@@ -115,9 +119,6 @@ collision_mask = 32
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_0iwyx")
 
-[node name="KnockbackComponent" parent="." unique_id=889611878 node_paths=PackedStringArray("hurtbox_component") instance=ExtResource("6_x41ut")]
-hurtbox_component = NodePath("../HurtboxComponent")
-
 [node name="AnimationComponent" parent="." unique_id=1246064280 instance=ExtResource("5_mvox7")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826973132]
@@ -125,8 +126,6 @@ material = SubResource("ShaderMaterial_dlbxo")
 sprite_frames = SubResource("SpriteFrames_w6omo")
 animation = &"idle_up_assault_rifle"
 autoplay = "idle_side_assault_rifle"
-
-[node name="WeaponMuzzle" type="Marker2D" parent="." unique_id=1978447752]
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1046545415]
 wait_time = 2.0

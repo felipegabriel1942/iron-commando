@@ -9,7 +9,6 @@ class_name Player
 var facing_direction := "down"
 var move_speed := 60
 var current_animation := ""
-var hits := 0
 var movement_velocity := Vector2.ZERO
 
 func _ready() -> void:
@@ -22,9 +21,9 @@ func _physics_process(delta: float) -> void:
 	handle_movement()
 	update_facing_direction()
 	
-	velocity = (
-		movement_velocity + knockback_component.knockback_velocity
-	)
+	if knockback_component:
+		velocity = movement_velocity
+		velocity += knockback_component.knockback_velocity
 
 	move_and_slide()
 	
@@ -49,9 +48,6 @@ func update_facing_direction() -> void:
 	var mouse_direction := (get_global_mouse_position() - global_position).normalized()
 	facing_direction = DirectionUtils.get_facing_direction(mouse_direction)
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.get_parent() is Bullet:
-		GameFeelManager.flash_shader(animated_sprite)
-		GameFeelManager.shake_camera()
-		
-		area.get_parent().queue_free()
+func _on_damaged(damage_data: Variant) -> void:
+	GameFeelManager.flash_shader(animated_sprite)
+	GameFeelManager.shake_camera()
