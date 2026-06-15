@@ -7,13 +7,22 @@ class_name Weapon
 @export var burst_shoot_qtd := 3
 
 @onready var muzzle: Marker2D = $Muzzle
-@onready var audio_stream: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var shot_sound: AudioStreamPlayer2D = $ShotSound
+@onready var reload_sound: AudioStreamPlayer2D = $ReloadSound
 
 var can_shoot := true
 var is_on_cover := false
+var is_reloading := false
+
+var current_ammo: int
+var reserve_ammo: int
 
 func _ready() -> void:
-	audio_stream.stream = data.shot_sound
+	shot_sound.stream = data.shot_sound
+	reload_sound.stream = data.reload_sound
+	
+	current_ammo = data.magazine_size
+	reserve_ammo = data.max_reserve_ammo
 	
 	cover_area.entered_cover_area.connect(on_cover_entered)
 	cover_area.exited_cover_area.connect(on_cover_exited)
@@ -26,15 +35,30 @@ func shoot(direction) -> void:
 	if not can_shoot:
 		return
 		
+	if is_reloading:
+		return
+		
+	if current_ammo <= 0:
+		return
+		
 	can_shoot = false
 	
 	if burst_shoot:
 		for i in range(burst_shoot_qtd):
-			await get_tree().create_timer(0.15).timeout
-			audio_stream.play()
+			
+			if current_ammo <= 0:
+				break
+			
+			current_ammo -= 1
+			
+			shot_sound.play()
 			create_bullet(direction)
+			
+			if i < burst_shoot_qtd - 1:
+				await get_tree().create_timer(0.15).timeout
 	else:
-		audio_stream.play()
+		current_ammo -= 1
+		shot_sound.play()
 		create_bullet(direction)
 	
 	start_fire_rate_cooldown()
@@ -69,3 +93,29 @@ func on_cover_entered() -> void:
 
 func on_cover_exited() -> void:
 	is_on_cover = false
+
+func reload() -> void:
+	if is_reloading:
+		return
+	
+	if current_ammo >= data.magazine_size:
+		return
+	
+	if reserve_ammo <= 0:
+		return
+	
+	is_reloading = true
+	
+	reload_sound.play()
+	
+	await get_tree().create_timer(data.reload_time).timeout
+	
+	var needed = data.magazine_size - current_ammo
+	var amount = min(needed, reserve_ammo)
+	
+	current_ammo += amount
+	reserve_ammo -= amount
+	
+	print(current_ammo)
+	
+	is_reloading = false

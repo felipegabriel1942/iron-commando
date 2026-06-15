@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://blyrwphuvtkdn"]
 
 [ext_resource type="PackedScene" uid="uid://b07un34cbnjfb" path="res://projectiles/bullet.tscn" id="1_0nnpp"]
-[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_su3sc"]
+[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://scripts/data/weapon_data.gd" id="1_su3sc"]
+[ext_resource type="AudioStream" uid="uid://d338uemiihrqu" path="res://assets/sfx/weapon_reload_01.mp3" id="2_f5ubh"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_0nnpp"]
 
 [resource]
@@ -21,4 +22,7 @@ muzzle_positions = Dictionary[String, Vector2]({
 "up_left": Vector2(0, 0),
 "up_right": Vector2(0, 0)
 })
+magazine_size = 32
+max_reserve_ammo = 120
+reload_sound = ExtResource("2_f5ubh")
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

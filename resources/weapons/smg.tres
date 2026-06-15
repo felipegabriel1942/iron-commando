@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dcahbq8tw885a"]
 
 [ext_resource type="PackedScene" uid="uid://b07un34cbnjfb" path="res://projectiles/bullet.tscn" id="1_v2t4f"]
-[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://weapons/weapon_data.gd" id="1_yxm1h"]
+[ext_resource type="AudioStream" uid="uid://d338uemiihrqu" path="res://assets/sfx/weapon_reload_01.mp3" id="2_f1xbn"]
+[ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://scripts/data/weapon_data.gd" id="3_1tdrn"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_f1xbn"]
 
 [resource]
-script = ExtResource("1_yxm1h")
+script = ExtResource("3_1tdrn")
 weapon_name = "SMG"
 animation_suffix = "smg"
 projectile = ExtResource("1_v2t4f")
@@ -22,4 +23,7 @@ muzzle_positions = Dictionary[String, Vector2]({
 "up_right": Vector2(0, 0)
 })
 recoil_range = 13
+magazine_size = 20
+max_reserve_ammo = 100
+reload_sound = ExtResource("2_f1xbn")
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

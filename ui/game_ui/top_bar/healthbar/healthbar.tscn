@@ -24,6 +24,7 @@ theme_override_constants/separation = 2
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=747246552]
 layout_mode = 2
 theme_override_constants/margin_left = 3
+theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer2" unique_id=1907429146]
 layout_mode = 2

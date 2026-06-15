@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="2_2ieo8"]
 [ext_resource type="PackedScene" uid="uid://biq4xe1twa4pe" path="res://components/health/health_component.tscn" id="2_yllr7"]
 [ext_resource type="PackedScene" uid="uid://omdq5kn188r3" path="res://components/animation/animation_component.tscn" id="3_g1dw6"]
-[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="3_yllr7"]
+[ext_resource type="Resource" uid="uid://blyrwphuvtkdn" path="res://resources/weapons/assault_rifle.tres" id="3_yllr7"]
 [ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="4_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://ciqody0bnm17o" path="res://assets/art/Characters/Player/player_SMG.png" id="4_rgyib"]
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="4_yw30f"]

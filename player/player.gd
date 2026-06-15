@@ -16,6 +16,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	handle_shoot()
+	handle_reload()
 	
 func _physics_process(delta: float) -> void:
 	handle_movement()
@@ -32,6 +33,10 @@ func handle_shoot() -> void:
 		var direction := (get_global_mouse_position() - global_position).normalized()
 		
 		weapon.shoot(direction)
+
+func handle_reload() -> void:
+	if Input.is_action_pressed("reload"):
+		weapon.reload()
 
 func handle_movement() -> void:
 	var direction := Vector2.ZERO

@@ -35,7 +35,7 @@ alignment = 1
 [node name="Portrait" parent="TopHud/MarginContainer/HBoxContainer" unique_id=2017734304 instance=ExtResource("1_5rq5h")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.03
+size_flags_stretch_ratio = 0.02
 
 [node name="Healthbar" parent="TopHud/MarginContainer/HBoxContainer" unique_id=1458179539 instance=ExtResource("2_6u1yh")]
 custom_minimum_size = Vector2(80, 24)
