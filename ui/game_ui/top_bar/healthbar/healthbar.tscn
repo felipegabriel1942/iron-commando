@@ -24,13 +24,12 @@ theme_override_constants/separation = 2
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=747246552]
 layout_mode = 2
 theme_override_constants/margin_left = 3
-theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer2" unique_id=1907429146]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.03137255, 1)
+theme_override_colors/font_color = Color(0.9425409, 0.95785517, 0.9999998, 1)
 theme_override_fonts/font = ExtResource("1_vf0md")
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/font_size = 8
 text = "HP"
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=319580390]

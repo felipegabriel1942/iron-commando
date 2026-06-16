@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://2fg70r08ihpu"]
+
+[ext_resource type="FontFile" uid="uid://cqpmuliriahvl" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_i72dq"]
+[ext_resource type="Texture2D" uid="uid://o4ku1l41i71w" path="res://assets/art/Pickables/assault_rifle.png" id="1_nliw1"]
+[ext_resource type="Script" uid="uid://by7rpmx0vaxag" path="res://ui/game_ui/top_bar/equipped_weapon/equipped_weapon.gd" id="1_w7epf"]
+
+[node name="EquippedWeapon" type="Control" unique_id=2010408913]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w7epf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=329562338]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1099521292]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i72dq")
+theme_override_font_sizes/font_size = 8
+text = "A. Rifle"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=444392580]
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("1_nliw1")

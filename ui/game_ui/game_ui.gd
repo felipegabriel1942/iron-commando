@@ -3,6 +3,8 @@ class_name GameUI
 
 @onready var healthbar: Healthbar = $TopHud/MarginContainer/HBoxContainer/Healthbar
 @onready var portrait: Portrait = $TopHud/MarginContainer/HBoxContainer/Portrait
+@onready var equipped_weapon: EquippedWeapon = $TopHud/MarginContainer/HBoxContainer/EquippedWeapon
+@onready var ammo_display: AmmoDisplay = $TopHud/MarginContainer/HBoxContainer/AmmoDisplay
 
 var player: Player
 
@@ -17,5 +19,10 @@ func _ready() -> void:
 		portrait.update_portrait
 	)
 	
-	healthbar.setup(player.health_component.max_health)
+	player.weapon.ammo_changed.connect(
+		ammo_display.update_ammo
+	)
 	
+	healthbar.setup(player.health_component.max_health)
+	equipped_weapon.setup(player.weapon.data)
+	ammo_display.setup(player.weapon)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://5d4c4nfiecnm"]
+
+[ext_resource type="Script" uid="uid://cdxjfrpausq12" path="res://ui/game_ui/top_bar/ammo_display/ammo_display.gd" id="1_oni5c"]
+[ext_resource type="FontFile" uid="uid://cqpmuliriahvl" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_n8oq3"]
+
+[node name="AmmoDisplay" type="Control" unique_id=1034350431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oni5c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1082608628]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=667700011]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n8oq3")
+theme_override_font_sizes/font_size = 8
+text = "Ammo"
+
+[node name="AmmoLabel" type="Label" parent="VBoxContainer" unique_id=1069397756]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_n8oq3")
+theme_override_font_sizes/font_size = 8
+text = "999/999"
+vertical_alignment = 2

@@ -12,3 +12,5 @@ class_name WeaponData
 @export var max_reserve_ammo: int = 48
 @export var reload_time: float = 1.5
 @export var reload_sound:  AudioStreamMP3
+@export var weapon_icon: Texture
+@export var short_name: String

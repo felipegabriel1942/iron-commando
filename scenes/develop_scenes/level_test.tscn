@@ -41,38 +41,50 @@ tile_set = ExtResource("3_fu8mc")
 position = Vector2(40, -157)
 
 [node name="EnemyInfantry02" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="1" unique_id=1659357053 instance=ExtResource("4_ibxoa")]
-position = Vector2(-54, 10)
+position = Vector2(37, -437)
 
-[node name="EnemyInfantry10" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="2" unique_id=1799211844 instance=ExtResource("4_ibxoa")]
-position = Vector2(53, 90)
+[node name="EnemyInfantry11" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="2" unique_id=2132324246 instance=ExtResource("4_ibxoa")]
+position = Vector2(35, -555)
 
-[node name="EnemyInfantry11" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="3" unique_id=2132324246 instance=ExtResource("4_ibxoa")]
-position = Vector2(-117, 14)
+[node name="EnemyInfantry03" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="3" unique_id=919849689 instance=ExtResource("4_ibxoa")]
+position = Vector2(-58, 11)
 
-[node name="EnemyInfantry03" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="4" unique_id=919849689 instance=ExtResource("4_ibxoa")]
-position = Vector2(-58, 96)
+[node name="EnemyInfantry04" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="4" unique_id=716918607 instance=ExtResource("4_ibxoa")]
+position = Vector2(-162, -556)
 
-[node name="EnemyInfantry04" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="5" unique_id=716918607 instance=ExtResource("4_ibxoa")]
-position = Vector2(57, 9)
+[node name="EnemyInfantry05" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="5" unique_id=2035803745 instance=ExtResource("4_ibxoa")]
+position = Vector2(38, -42)
 
-[node name="EnemyInfantry05" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="6" unique_id=2035803745 instance=ExtResource("4_ibxoa")]
-position = Vector2(40, -77)
+[node name="EnemyInfantry06" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="6" unique_id=1475656823 instance=ExtResource("4_ibxoa")]
+position = Vector2(-63, -649)
 
-[node name="EnemyInfantry06" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="7" unique_id=1475656823 instance=ExtResource("4_ibxoa")]
-position = Vector2(-61, -185)
+[node name="EnemyInfantry12" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="7" unique_id=693268652 instance=ExtResource("4_ibxoa")]
+position = Vector2(-35, -842)
 
-[node name="EnemyInfantry07" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="8" unique_id=1980195594 instance=ExtResource("4_ibxoa")]
-position = Vector2(-184, -396)
+[node name="EnemyInfantry16" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="8" unique_id=1511409657 instance=ExtResource("4_ibxoa")]
+position = Vector2(-59, -1035)
 
-[node name="EnemyInfantry08" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="9" unique_id=1403728171 instance=ExtResource("4_ibxoa")]
-position = Vector2(-196, -187)
+[node name="EnemyInfantry14" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="9" unique_id=925461606 instance=ExtResource("4_ibxoa")]
+position = Vector2(49, -971)
 
-[node name="EnemyInfantry09" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="10" unique_id=383206249 instance=ExtResource("4_ibxoa")]
-position = Vector2(-166, -293)
+[node name="EnemyInfantry15" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="10" unique_id=1009833629 instance=ExtResource("4_ibxoa")]
+position = Vector2(-166, -971)
+
+[node name="EnemyInfantry13" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="11" unique_id=391000562 instance=ExtResource("4_ibxoa")]
+position = Vector2(-197, -753)
+
+[node name="EnemyInfantry07" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="12" unique_id=1980195594 instance=ExtResource("4_ibxoa")]
+position = Vector2(-159, -435)
+
+[node name="EnemyInfantry08" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="13" unique_id=1403728171 instance=ExtResource("4_ibxoa")]
+position = Vector2(-128, -187)
+
+[node name="EnemyInfantry09" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="14" unique_id=383206249 instance=ExtResource("4_ibxoa")]
+position = Vector2(-201, -314)
 
 [node name="WorldObjects" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="3" unique_id=1941445325]
 
 [node name="Boxes" type="Node2D" parent="YSortRoot/WorldObjects" index="0" unique_id=31950403]
 
 [node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="4" unique_id=287460810]
-position = Vector2(-67, -439)
+position = Vector2(-182, 50)

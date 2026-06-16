@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://scripts/data/weapon_data.gd" id="1_su3sc"]
 [ext_resource type="AudioStream" uid="uid://d338uemiihrqu" path="res://assets/sfx/weapon_reload_01.mp3" id="2_f5ubh"]
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="3_0nnpp"]
+[ext_resource type="Texture2D" uid="uid://o4ku1l41i71w" path="res://assets/art/Pickables/assault_rifle.png" id="5_ubycl"]
 
 [resource]
 script = ExtResource("1_su3sc")
@@ -25,4 +26,6 @@ muzzle_positions = Dictionary[String, Vector2]({
 magazine_size = 32
 max_reserve_ammo = 120
 reload_sound = ExtResource("2_f5ubh")
+weapon_icon = ExtResource("5_ubycl")
+short_name = "A. Rifle"
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

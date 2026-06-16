@@ -1,6 +1,8 @@
 extends Node2D
 class_name Weapon
 
+signal ammo_changed(current, reserve)
+
 @export var data: WeaponData
 @export var cover_area: CoverAreaComponent
 @export var burst_shoot := true
@@ -61,6 +63,8 @@ func shoot(direction) -> void:
 		shot_sound.play()
 		create_bullet(direction)
 	
+	ammo_changed.emit(current_ammo, reserve_ammo)
+	
 	start_fire_rate_cooldown()
 
 func create_bullet(direction) -> void:
@@ -116,6 +120,6 @@ func reload() -> void:
 	current_ammo += amount
 	reserve_ammo -= amount
 	
-	print(current_ammo)
-	
+	ammo_changed.emit(current_ammo, reserve_ammo)
+
 	is_reloading = false
