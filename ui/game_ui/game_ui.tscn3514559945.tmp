@@ -58,6 +58,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Crosshair" type="Sprite2D" parent="." unique_id=1308670071]
-scale = Vector2(0.6, 0.6)
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=1788679119]
 texture = ExtResource("6_bl2pf")
