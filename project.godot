@@ -23,8 +23,8 @@ GameFeelManager="*uid://dnmrxty6wfqvu"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=192
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/size/mode=2
 window/stretch/mode="canvas_items"
 

@@ -32,6 +32,8 @@
 	[] Criar uma area de tiro, para que os inimigos andem até uma posição que podem atacar o jogador
 	[x] Ao receber dano dar um leve knockback no sentido contrario do impacto
 	[] Implementar movimentação fazendo com que se movam até ter uma linha de tiro do para o jogador
+	[] Criar apc de combate inimigo
+	
 	
 7. Architecture
 	[] Implementar state machine nos personagens
