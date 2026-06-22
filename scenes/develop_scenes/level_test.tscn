@@ -82,9 +82,8 @@ position = Vector2(-128, -187)
 [node name="EnemyInfantry09" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="14" unique_id=383206249 instance=ExtResource("4_ibxoa")]
 position = Vector2(-201, -314)
 
-[node name="WorldObjects" type="Node2D" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="3" unique_id=1941445325]
-
-[node name="Boxes" type="Node2D" parent="YSortRoot/WorldObjects" index="0" unique_id=31950403]
+[node name="Pickables" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="3" unique_id=977472009]
+y_sort_enabled = true
 
 [node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="4" unique_id=287460810]
 position = Vector2(-182, 50)

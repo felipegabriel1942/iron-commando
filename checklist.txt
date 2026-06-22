@@ -1,8 +1,8 @@
 1. UI
-	[] Barra de pontos de vida do jogador
-	[] Contador de munição
-	[] Foto do personagem do jogador
-	[] Trocar mouse default por um sprite de mira representando onde o jogador vai atirar
+	[x] Barra de pontos de vida do jogador
+	[x] Contador de munição
+	[x] Foto do personagem do jogador
+	[x] Trocar mouse default por um sprite de mira representando onde o jogador vai atirar
 
 2. SFX
 	[] Efeito de "fogo" no cano da arma ao atirar
@@ -12,17 +12,19 @@
 	[x] Efeito de "trail" nos tiros
 	[x] Acrescentar screen shake, quando jogador for atingido
 	[] Acrescentar capsulas sendo ejetadas das armas ao atirar
-	
+	[] Dar um feedback visual e sonoro quando personagem do jogador pegar item de cura
+	[] Dar um feedback visual e sonoro quando personagem do jogador pegar item de munição
+		
 3. Pickables
-	[] Criar item de cura
+	[x] Criar item de cura
 	[] Criar item de arma
-	[] Criar item de munição
+	[x] Criar item de munição
 
 4. Objects
 	[] Criar barril explosivo
 
 5. Mechanics
-	[] Contador de munição e recarga
+	[x] Contador de munição e recarga
 	[] Criar granadas
 	
 6. Enemies
@@ -33,4 +35,5 @@
 	
 7. Architecture
 	[] Implementar state machine nos personagens
-	[] Melhorar sistema de saúde criando HealhtComponent e implementando danos diferentes por arma
+	[] Melhorar sistema de saúde criando HealhtComponent
+	[] Implementar danos diferentes por arma

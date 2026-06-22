@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cevevo35bdonn"]
+
+[ext_resource type="Script" uid="uid://dhfd6eq3sue5j" path="res://components/pickable/pickable_component.gd" id="1_ssvke"]
+
+[node name="PickableComponent" type="Area2D" unique_id=1508355302]
+script = ExtResource("1_ssvke")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2bjn5bylhegh"]
+
+[ext_resource type="Script" uid="uid://bqq1r0xor43pq" path="res://components/loot_drop/loot_drop_component.gd" id="1_pmujp"]
+
+[node name="LootDropComponent" type="Node2D" unique_id=1099705405]
+script = ExtResource("1_pmujp")

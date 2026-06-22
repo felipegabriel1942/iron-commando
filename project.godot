@@ -72,6 +72,7 @@ reload={
 2d_physics/layer_7="objects"
 2d_physics/layer_8="cover_area"
 2d_physics/layer_9="enemy"
+2d_physics/layer_10="pickable"
 
 [physics]
 

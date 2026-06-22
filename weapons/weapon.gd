@@ -24,7 +24,7 @@ func _ready() -> void:
 	reload_sound.stream = data.reload_sound
 	
 	current_ammo = data.magazine_size
-	reserve_ammo = data.max_reserve_ammo
+	reserve_ammo = data.reserve_ammo
 	
 	cover_area.entered_cover_area.connect(on_cover_entered)
 	cover_area.exited_cover_area.connect(on_cover_exited)
@@ -123,3 +123,11 @@ func reload() -> void:
 	ammo_changed.emit(current_ammo, reserve_ammo)
 
 	is_reloading = false
+
+func add_ammo() -> void:
+	reserve_ammo += data.pickup_ammount
+	
+	if reserve_ammo > data.max_reserve_ammo:
+		reserve_ammo = data.max_reserve_ammo
+		
+	ammo_changed.emit(current_ammo, reserve_ammo)

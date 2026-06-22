@@ -24,7 +24,7 @@ muzzle_positions = Dictionary[String, Vector2]({
 "up_right": Vector2(0, 0)
 })
 magazine_size = 32
-max_reserve_ammo = 120
+reserve_ammo = 120
 reload_sound = ExtResource("2_f5ubh")
 weapon_icon = ExtResource("5_ubycl")
 short_name = "A. Rifle"
