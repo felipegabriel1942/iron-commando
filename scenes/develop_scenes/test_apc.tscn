@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b6aq63vqkagkr"]
+
+[ext_resource type="PackedScene" uid="uid://b1v03ctptc544" path="res://scenes/base_level.tscn" id="1_f4o4r"]
+
+[node name="TestAPC" unique_id=243948734 instance=ExtResource("1_f4o4r")]

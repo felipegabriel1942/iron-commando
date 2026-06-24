@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dxp2csa2sphry"]
+
+[ext_resource type="Script" uid="uid://cvob3ck0y5s1o" path="res://components/pathfind/pathfind_component.gd" id="1_bxdsc"]
+
+[node name="PathfindComponent" type="Node2D" unique_id=2049845604]
+script = ExtResource("1_bxdsc")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=22226660]
+path_postprocessing = 1
+simplify_path = true
+avoidance_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1223544283]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

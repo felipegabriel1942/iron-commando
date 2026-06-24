@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Iron Commando"
-run/main_scene="uid://dqms6kd46icd6"
+run/main_scene="uid://b6aq63vqkagkr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -73,6 +73,7 @@ reload={
 2d_physics/layer_8="cover_area"
 2d_physics/layer_9="enemy"
 2d_physics/layer_10="pickable"
+2d_physics/layer_11="pit"
 
 [physics]
 

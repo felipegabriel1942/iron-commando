@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://mjamf51ts3p7"]
+
+[ext_resource type="Script" uid="uid://bnhnkb6tcdc2a" path="res://components/attack_range/attack_range_component.gd" id="1_j8100"]
+
+[node name="AttackRangeComponent" type="Area2D" unique_id=341624404]
+script = ExtResource("1_j8100")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

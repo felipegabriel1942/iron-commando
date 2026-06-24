@@ -12,6 +12,9 @@ var player: Player
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
+	call_deferred("setup_data")
+
+func setup_data() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	
 	player.health_component.health_changed.connect(

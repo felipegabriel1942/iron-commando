@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cu4f01aunukx1" path="res://player/player.tscn" id="1_6tisa"]
 [ext_resource type="Script" uid="uid://dqfxsn5haufbg" path="res://scenes/base_level.gd" id="1_dbkse"]
+[ext_resource type="PackedScene" uid="uid://5iq4341j41il" path="res://ui/game_ui/game_ui.tscn" id="2_0n1tn"]
 
 [node name="BaseLevel" type="Node2D" unique_id=243948734]
 script = ExtResource("1_dbkse")
+
+[node name="GameUI" parent="." unique_id=1310803073 instance=ExtResource("2_0n1tn")]
 
 [node name="YSortRoot" type="Node2D" parent="." unique_id=1107825696]
 y_sort_enabled = true
