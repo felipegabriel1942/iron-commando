@@ -22,4 +22,5 @@ muzzle_positions = Dictionary[String, Vector2]({
 "up_right": Vector2(0, 0)
 })
 recoil_range = 15
+damage_type = 1
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

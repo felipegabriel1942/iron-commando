@@ -13,4 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	for hurtbox in area_2d.get_overlapping_areas():
-		(hurtbox as HurtboxComponent).receive_hit(damage_data)
+		if hurtbox:
+			(hurtbox as HurtboxComponent).receive_hit(damage_data)

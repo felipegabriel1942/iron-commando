@@ -5,6 +5,7 @@ signal damaged(damage_data)
 
 @export var health_component: HealthComponent
 @export var knockback_component: KnockbackComponent
+@export var defense_component: DefenseComponent
 @export var invincibility_duration := 0.5
 
 var invincible := false
@@ -13,7 +14,9 @@ func receive_hit(damage_data: DamageData) -> void:
 	if invincible:
 		return
 	
-	health_component.take_damage(damage_data.damage)
+	var damage = defense_component.calculate_damage(damage_data)
+	
+	health_component.take_damage(damage)
 	
 	if knockback_component:
 		knockback_component.apply_knockback(

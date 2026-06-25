@@ -2,6 +2,7 @@ extends Node2D
 class_name Weapon
 
 signal ammo_changed(current, reserve)
+signal weapon_changed(new_weapon)
 
 @export var data: WeaponData
 @export var cover_area: CoverAreaComponent
@@ -80,7 +81,8 @@ func create_bullet(direction) -> void:
 		data.damage,
 		data.knockback_force,
 		projectile.direction,
-		owner
+		data.damage_type,
+		owner,
 	)
 	
 func start_fire_rate_cooldown() -> void:
@@ -126,3 +128,10 @@ func add_ammo() -> void:
 		reserve_ammo = data.max_reserve_ammo
 		
 	ammo_changed.emit(current_ammo, reserve_ammo)
+
+func equip_weapon(new_weapon: WeaponData) -> void:
+	data = new_weapon
+	current_ammo = data.magazine_size
+	reserve_ammo = data.reserve_ammo
+	ammo_changed.emit(current_ammo, reserve_ammo)
+	weapon_changed.emit(new_weapon)

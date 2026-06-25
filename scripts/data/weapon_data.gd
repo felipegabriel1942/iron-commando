@@ -18,3 +18,4 @@ class_name WeaponData
 @export var max_reserve_ammo: int = 999
 @export var damage: int = 1
 @export var knockback_force: int = 70
+@export var damage_type: DamageType.Type

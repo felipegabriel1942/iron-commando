@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://fuui61to5grg" path="res://assets/sfx/machine_gun_sound_cut.mp3" id="5_o2o2x"]
 [ext_resource type="PackedScene" uid="uid://biq4xe1twa4pe" path="res://components/health/health_component.tscn" id="6_82j7p"]
 [ext_resource type="PackedScene" uid="uid://cvvlg3i6i8cqx" path="res://components/knockback/knockback_component.tscn" id="6_x41ut"]
+[ext_resource type="PackedScene" uid="uid://ck2vfdih332is" path="res://components/defense/defense_component.tscn" id="8_hlmpg"]
 [ext_resource type="PackedScene" uid="uid://c2bjn5bylhegh" path="res://components/loot_drop/loot_drop_component.tscn" id="8_w2thm"]
 [ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="9_d58sy"]
 [ext_resource type="PackedScene" uid="uid://vvshlpb3pspl" path="res://pickables/pickups/health_pickup.tscn" id="9_i6eew"]
@@ -299,10 +300,13 @@ cover_area = NodePath("../CoverAreaComponent")
 
 [node name="KnockbackComponent" parent="." unique_id=889611878 instance=ExtResource("6_x41ut")]
 
-[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component", "knockback_component") instance=ExtResource("2_p0uk1")]
+[node name="DefenseComponent" parent="." unique_id=974274977 instance=ExtResource("8_hlmpg")]
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component", "knockback_component", "defense_component") instance=ExtResource("2_p0uk1")]
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
 knockback_component = NodePath("../KnockbackComponent")
+defense_component = NodePath("../DefenseComponent")
 invincibility_duration = 0.0
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]

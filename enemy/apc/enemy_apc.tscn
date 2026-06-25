@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_amfeb"]
 [ext_resource type="PackedScene" uid="uid://biq4xe1twa4pe" path="res://components/health/health_component.tscn" id="2_jap03"]
 [ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="4_jap03"]
+[ext_resource type="PackedScene" uid="uid://ck2vfdih332is" path="res://components/defense/defense_component.tscn" id="7_xc64x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jap03"]
 size = Vector2(28, 33)
@@ -61,11 +62,16 @@ animations = [{
 script = ExtResource("1_amfeb")
 
 [node name="HealthComponent" parent="." unique_id=1019111412 instance=ExtResource("2_jap03")]
-max_health = 1
+max_health = 25
 
-[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component") instance=ExtResource("2_amfeb")]
+[node name="DefenseComponent" parent="." unique_id=974274977 instance=ExtResource("7_xc64x")]
+weakness = 2
+resistence = 1
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component", "defense_component") instance=ExtResource("2_amfeb")]
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
+defense_component = NodePath("../DefenseComponent")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
 z_index = 1
@@ -87,6 +93,8 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.41591176
 
+[connection signal="died" from="HealthComponent" to="." method="_on_died"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
 [connection signal="damaged" from="HurtboxComponent" to="." method="_on_damaged"]
 
 [editable path="HurtboxComponent"]

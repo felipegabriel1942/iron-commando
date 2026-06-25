@@ -29,6 +29,10 @@ func setup_data() -> void:
 		ammo_display.update_ammo
 	)
 	
+	player.weapon.weapon_changed.connect(
+		equipped_weapon.setup
+	)
+	
 	healthbar.setup(player.health_component.max_health)
 	equipped_weapon.setup(player.weapon.data)
 	ammo_display.setup(player.weapon)

@@ -28,4 +28,5 @@ reserve_ammo = 120
 reload_sound = ExtResource("2_f5ubh")
 weapon_icon = ExtResource("5_ubycl")
 short_name = "A. Rifle"
+damage_type = 1
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

@@ -29,4 +29,5 @@ reserve_ammo = 200
 reload_sound = ExtResource("2_f1xbn")
 weapon_icon = ExtResource("5_1tdrn")
 short_name = "SMG"
+damage_type = 1
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

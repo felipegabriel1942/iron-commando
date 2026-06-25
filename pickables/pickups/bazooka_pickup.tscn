@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://vy0ffr2etho8"]
+
+[ext_resource type="Texture2D" uid="uid://buf6dxe57kah0" path="res://assets/art/Pickables/bazooka.png" id="1_hwhtf"]
+[ext_resource type="PackedScene" uid="uid://cevevo35bdonn" path="res://components/pickable/pickable_component.tscn" id="1_wt358"]
+[ext_resource type="Script" uid="uid://c76kiqcgrkcu1" path="res://pickables/effects/bazooka_pickup_effect.gd" id="2_8cnws"]
+[ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="2_q0jqn"]
+
+[sub_resource type="Resource" id="Resource_hwhtf"]
+script = ExtResource("2_8cnws")
+metadata/_custom_type_script = "uid://c76kiqcgrkcu1"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwhtf"]
+size = Vector2(21, 12)
+
+[node name="BazookaPickup" type="Node2D" unique_id=415874164]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619011219]
+z_index = 3
+texture = ExtResource("1_hwhtf")
+
+[node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("2_q0jqn")]
+position = Vector2(-1, 13)
+
+[node name="PickableComponent" parent="." unique_id=1508355302 instance=ExtResource("1_wt358")]
+collision_layer = 512
+collision_mask = 16
+effect = SubResource("Resource_hwhtf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableComponent" unique_id=446872662]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_hwhtf")

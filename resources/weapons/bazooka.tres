@@ -20,5 +20,7 @@ weapon_icon = ExtResource("5_gi2ae")
 short_name = "Bazooka"
 pickup_ammount = 1
 max_reserve_ammo = 10
+damage = 5
 knockback_force = 200
+damage_type = 2
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

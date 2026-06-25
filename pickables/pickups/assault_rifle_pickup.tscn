@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bjdnxv2dwekpb"]
+
+[ext_resource type="Texture2D" uid="uid://o4ku1l41i71w" path="res://assets/art/Pickables/assault_rifle.png" id="1_kf50f"]
+[ext_resource type="PackedScene" uid="uid://bnojfyb4whg2o" path="res://components/shadow/shadow_component.tscn" id="2_3sl01"]
+[ext_resource type="PackedScene" uid="uid://cevevo35bdonn" path="res://components/pickable/pickable_component.tscn" id="2_if3h7"]
+[ext_resource type="Script" uid="uid://dntifurvx81f3" path="res://pickables/effects/assault_rifle_pickup_effect.gd" id="3_3sl01"]
+
+[sub_resource type="Resource" id="Resource_mssqc"]
+script = ExtResource("3_3sl01")
+metadata/_custom_type_script = "uid://dntifurvx81f3"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if3h7"]
+
+[node name="AssaultRiflePickup" type="Node2D" unique_id=1644341753]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1717925564]
+texture = ExtResource("1_kf50f")
+
+[node name="ShadowComponent" parent="." unique_id=1412329926 instance=ExtResource("2_3sl01")]
+position = Vector2(0, 13)
+
+[node name="PickableComponent" parent="." unique_id=1508355302 instance=ExtResource("2_if3h7")]
+collision_layer = 512
+collision_mask = 16
+effect = SubResource("Resource_mssqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableComponent" unique_id=1812326372]
+shape = SubResource("RectangleShape2D_if3h7")
