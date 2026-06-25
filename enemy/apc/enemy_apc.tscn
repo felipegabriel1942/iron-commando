@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ccx6nf1o1pwfv"]
+
+[ext_resource type="Texture2D" uid="uid://d0pl7qsarigwn" path="res://assets/art/Characters/Enemies/APC.png" id="1_5joni"]
+[ext_resource type="Script" uid="uid://dbjlvtqt68xg0" path="res://enemy/apc/enemy_apc.gd" id="1_amfeb"]
+[ext_resource type="Texture2D" uid="uid://oucgst6knmms" path="res://assets/art/Characters/Enemies/enemy_heavy_machinegun_onAPC.png" id="1_iunj6"]
+[ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_amfeb"]
+[ext_resource type="PackedScene" uid="uid://biq4xe1twa4pe" path="res://components/health/health_component.tscn" id="2_jap03"]
+[ext_resource type="Shader" uid="uid://jwuinga42i1g" path="res://assets/shaders/flash.gdshader" id="4_jap03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jap03"]
+size = Vector2(28, 33)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xc64x"]
+shader = ExtResource("4_jap03")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcqvs"]
+atlas = ExtResource("1_iunj6")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amfeb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcqvs")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jap03"]
+shader = ExtResource("4_jap03")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iunj6"]
+atlas = ExtResource("1_5joni")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncavf"]
+atlas = ExtResource("1_5joni")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bnxiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iunj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncavf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="EnemyAPC" type="CharacterBody2D" unique_id=236215124]
+script = ExtResource("1_amfeb")
+
+[node name="HealthComponent" parent="." unique_id=1019111412 instance=ExtResource("2_jap03")]
+max_health = 1
+
+[node name="HurtboxComponent" parent="." unique_id=1662772938 node_paths=PackedStringArray("health_component") instance=ExtResource("2_amfeb")]
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=2074407326]
+z_index = 1
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_jap03")
+
+[node name="MachineGunAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586878701]
+z_index = 1
+material = SubResource("ShaderMaterial_xc64x")
+position = Vector2(-2, -10)
+sprite_frames = SubResource("SpriteFrames_amfeb")
+animation = &"down"
+autoplay = "down"
+
+[node name="VeiculeAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730638620]
+material = SubResource("ShaderMaterial_jap03")
+sprite_frames = SubResource("SpriteFrames_bnxiu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.41591176
+
+[connection signal="damaged" from="HurtboxComponent" to="." method="_on_damaged"]
+
+[editable path="HurtboxComponent"]

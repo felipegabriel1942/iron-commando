@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://b6aq63vqkagkr"]
 
 [ext_resource type="PackedScene" uid="uid://b1v03ctptc544" path="res://scenes/base_level.tscn" id="1_f4o4r"]
+[ext_resource type="PackedScene" uid="uid://ccx6nf1o1pwfv" path="res://enemy/apc/enemy_apc.tscn" id="2_ke1vk"]
+[ext_resource type="Resource" uid="uid://51g4smambrco" path="res://resources/weapons/bazooka.tres" id="3_y1ihl"]
 
 [node name="TestAPC" unique_id=243948734 instance=ExtResource("1_f4o4r")]
+
+[node name="EnemyAPC" parent="YSortRoot/Enemies" parent_id_path=PackedInt32Array(1506805510) index="0" unique_id=236215124 instance=ExtResource("2_ke1vk")]
+position = Vector2(-93, -60)
+
+[node name="Weapon" parent="YSortRoot/Player" parent_id_path=PackedInt32Array(287460810) index="0" unique_id=602882196]
+data = ExtResource("3_y1ihl")
+
+[editable path="YSortRoot/Player"]
+[editable path="YSortRoot/Player/HurtboxComponent"]
+[editable path="YSortRoot/Player/CoverAreaComponent"]

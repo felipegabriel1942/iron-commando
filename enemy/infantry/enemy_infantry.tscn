@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmyy7t6hkg4u"]
 
-[ext_resource type="Script" uid="uid://nf8tljglinnf" path="res://enemy/enemy_infantry/enemy_infantry.gd" id="1_dlbxo"]
+[ext_resource type="Script" uid="uid://nf8tljglinnf" path="res://enemy/infantry/enemy_infantry.gd" id="1_dlbxo"]
 [ext_resource type="Texture2D" uid="uid://o4ux4h1740qc" path="res://assets/art/Characters/Enemies/enemy_assault_rifle.png" id="2_elf6c"]
 [ext_resource type="PackedScene" uid="uid://dh73n03igap2j" path="res://weapons/weapon.tscn" id="2_mvox7"]
 [ext_resource type="PackedScene" uid="uid://bw31l6yyawy0x" path="res://components/hurtbox/hurtbox_component.tscn" id="2_p0uk1"]

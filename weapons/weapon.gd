@@ -9,8 +9,6 @@ signal ammo_changed(current, reserve)
 @export var burst_shoot_qtd := 3
 
 @onready var muzzle: Marker2D = $Muzzle
-@onready var shot_sound: AudioStreamPlayer2D = $ShotSound
-@onready var reload_sound: AudioStreamPlayer2D = $ReloadSound
 
 var can_shoot := true
 var is_on_cover := false
@@ -20,9 +18,6 @@ var current_ammo: int
 var reserve_ammo: int
 
 func _ready() -> void:
-	shot_sound.stream = data.shot_sound
-	reload_sound.stream = data.reload_sound
-	
 	current_ammo = data.magazine_size
 	reserve_ammo = data.reserve_ammo
 	
@@ -53,14 +48,14 @@ func shoot(direction) -> void:
 			
 			current_ammo -= 1
 			
-			shot_sound.play()
+			SfxManager.play_sfx(data.shot_sound)
 			create_bullet(direction)
 			
 			if i < burst_shoot_qtd - 1:
 				await get_tree().create_timer(0.15).timeout
 	else:
 		current_ammo -= 1
-		shot_sound.play()
+		SfxManager.play_sfx(data.shot_sound)
 		create_bullet(direction)
 	
 	ammo_changed.emit(current_ammo, reserve_ammo)
@@ -82,8 +77,8 @@ func create_bullet(direction) -> void:
 	get_tree().current_scene.add_child(projectile)
 	
 	projectile.hitbox.damage_data = DamageData.new(
-		1,
-		70,
+		data.damage,
+		data.knockback_force,
 		projectile.direction,
 		owner
 	)
@@ -110,7 +105,7 @@ func reload() -> void:
 	
 	is_reloading = true
 	
-	reload_sound.play()
+	SfxManager.play_sfx(data.reload_sound)
 	
 	await get_tree().create_timer(data.reload_time).timeout
 	

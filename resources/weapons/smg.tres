@@ -25,7 +25,7 @@ muzzle_positions = Dictionary[String, Vector2]({
 })
 recoil_range = 13
 magazine_size = 20
-max_reserve_ammo = 100
+reserve_ammo = 200
 reload_sound = ExtResource("2_f1xbn")
 weapon_icon = ExtResource("5_1tdrn")
 short_name = "SMG"

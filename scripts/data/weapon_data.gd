@@ -16,3 +16,5 @@ class_name WeaponData
 @export var short_name: String
 @export var pickup_ammount := 30
 @export var max_reserve_ammo: int = 999
+@export var damage: int = 1
+@export var knockback_force: int = 70

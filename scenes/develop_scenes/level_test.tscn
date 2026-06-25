@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b1v03ctptc544" path="res://scenes/base_level.tscn" id="1_beyne"]
 [ext_resource type="Script" uid="uid://c5oq6eyfav3kf" path="res://scenes/develop_scenes/level_test.gd" id="2_w7lb0"]
 [ext_resource type="TileSet" uid="uid://drjfxnmoj1u5q" path="res://resources/tile_set.tres" id="3_fu8mc"]
-[ext_resource type="PackedScene" uid="uid://bmyy7t6hkg4u" path="res://enemy/enemy_infantry/enemy_infantry.tscn" id="4_ibxoa"]
+[ext_resource type="PackedScene" uid="uid://bmyy7t6hkg4u" path="res://enemy/infantry/enemy_infantry.tscn" id="4_ibxoa"]
+[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="5_fnrjn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fnrjn"]
 vertices = PackedVector2Array(-205.78906, -954.1172, -209.10938, -994.71094, -132.29688, -992.75, -49.882813, -956.1328, 1, -990.34375, 63.789063, -994.3281, 63.171875, -960.3828, 1, -956.3828, 83.39844, -702.03906, 83.57031, -698.0781, -43, -699.0781, -145, -703.03906, -187, -154.64844, -196, -154.34375, -196, -179, -187, -177, -211.21094, -539, -211.78125, -565, -84.90625, -565, -83.85156, -539, -44, -449.8125, 61, -451.79688, 61, -411.89844, -156.0625, -409.90625, -177, -435.28125, -177, -450.8828, -85.14844, -449.89063, 69.10156, -213, 69.89844, -129, 37, -129, 36, -213, -43, -562.90625, 67, -563.89844, 67, -540.8203, -44, -538.8203, -107, 102, -214.90625, 102, -214.09375, 11, -107, 64, -14, -212.92188, -14, -229, 36, -229, -107, 11, -107, 43, -69, 64, -69, 43, -69, 11, -43, 11, -43, 43, -5, 43, -5, 11, 9.6796875, 11, -44, -192, -44, -155, -69, -155, -69, -192, -107, -192, -107, -176, -123, -176, -123, -154, -133, -154, -133, -177, -212, -179, -212, -434.27344, 66.140625, 102.92969, -69, 102.0625, -131.28906, -1026.8672, 1, -1025.1172, 1, -812.1328, -51.109375, -850.1172, -145, -814.1406, -212, -848.1172, -212, -699.7578, -86.09375, -696.77344, -154.9375, -214.07813, 43, -65, 10.78125, -65, 8.7890625, -153.32813, 10.6796875, -20, 43, -20, -5, -154.29688, -5, -192, 68.85156, -83, 37, -83)
@@ -99,3 +100,10 @@ navigation_polygon = SubResource("NavigationPolygon_fnrjn")
 
 [node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="5" unique_id=287460810]
 position = Vector2(-164, 49)
+
+[node name="Weapon" parent="YSortRoot/Player" index="0" unique_id=602882196]
+data = ExtResource("5_fnrjn")
+
+[editable path="YSortRoot/Player"]
+[editable path="YSortRoot/Player/HurtboxComponent"]
+[editable path="YSortRoot/Player/CoverAreaComponent"]

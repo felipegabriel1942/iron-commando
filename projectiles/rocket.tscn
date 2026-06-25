@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dk3sliyhws24y"]
+
+[ext_resource type="Script" uid="uid://bnpee0sodo2ut" path="res://projectiles/rocket.gd" id="1_iyl8n"]
+[ext_resource type="Texture2D" uid="uid://bftdmoned3loh" path="res://assets/art/Effects/Weapons Flash and Bullets/player_bazooka_bullet.png" id="2_etms7"]
+[ext_resource type="PackedScene" uid="uid://soapublae74b" path="res://components/hitbox/hitbox_component.tscn" id="2_iyl8n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyl8n"]
+radius = 4.0
+
+[node name="Rocket" type="Node2D" unique_id=520769894]
+script = ExtResource("1_iyl8n")
+
+[node name="HitboxComponent" parent="." unique_id=1882853712 instance=ExtResource("2_iyl8n")]
+collision_layer = 0
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1455587010]
+shape = SubResource("CircleShape2D_iyl8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1004564032]
+texture = ExtResource("2_etms7")
+region_enabled = true
+region_rect = Rect2(0, 0, 6, 7)
+
+[connection signal="on_body_hit" from="HitboxComponent" to="." method="_on_on_body_hit"]
+[connection signal="on_hurtbox_hit" from="HitboxComponent" to="." method="_on_hurtbox_hit"]

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b1e84cx2xxd4e"]
+
+[ext_resource type="Texture2D" uid="uid://cdrst0gpeu2tu" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_1.png" id="1_i4ulv"]
+[ext_resource type="Script" uid="uid://tkw4ss73msc" path="res://effects/explosion.gd" id="1_ol7ih"]
+[ext_resource type="Texture2D" uid="uid://bmmipf30jwk4n" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_2.png" id="2_ol7ih"]
+[ext_resource type="Texture2D" uid="uid://duo1eoathpisv" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_3.png" id="3_qqpr7"]
+[ext_resource type="Texture2D" uid="uid://c28kk4n0bngma" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_4.png" id="4_f0vdp"]
+[ext_resource type="Texture2D" uid="uid://cxu2u3cr1p0yv" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_5.png" id="5_5lase"]
+[ext_resource type="Texture2D" uid="uid://bs5b36x7ku26p" path="res://assets/art/Effects/Bazooka and Tank, Granade bullet Explosion/explosion_6.png" id="6_8t8nq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4ulv"]
+radius = 34.0147
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk6yn"]
+atlas = ExtResource("1_i4ulv")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rixjc"]
+atlas = ExtResource("2_ol7ih")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3uhv"]
+atlas = ExtResource("3_qqpr7")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqgkx"]
+atlas = ExtResource("4_f0vdp")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdkcr"]
+atlas = ExtResource("5_5lase")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gi8n"]
+atlas = ExtResource("6_8t8nq")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j87x5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk6yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rixjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3uhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqgkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gi8n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Explosion" type="Node2D" unique_id=1576302143]
+script = ExtResource("1_ol7ih")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=790356218]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=208489743]
+shape = SubResource("CircleShape2D_i4ulv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=959493340]
+z_index = 4
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_j87x5")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
