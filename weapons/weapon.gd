@@ -8,6 +8,7 @@ signal weapon_changed(new_weapon)
 @export var cover_area: CoverAreaComponent
 @export var burst_shoot := true
 @export var burst_shoot_qtd := 3
+@export var facing_direction: FacingDirectionComponent
 
 @onready var muzzle: Marker2D = $Muzzle
 
@@ -26,8 +27,8 @@ func _ready() -> void:
 	cover_area.exited_cover_area.connect(on_cover_exited)
 
 func _process(delta: float) -> void:
-	if data.muzzle_positions.has(get_parent().facing_direction):
-		muzzle.position = data.muzzle_positions[get_parent().facing_direction]
+	if data.muzzle_positions.has(facing_direction.facing):
+		muzzle.position = data.muzzle_positions[facing_direction.facing]
 
 func shoot(direction) -> void:
 	if not can_shoot:
@@ -72,9 +73,24 @@ func create_bullet(direction) -> void:
 	projectile.direction = direction.rotated(recoil)
 	projectile.rotation = angle
 	projectile.origin_cover = is_on_cover
-	
 	projectile.team = get_parent().get_groups()[0]
 	
+	if data.muzzle_flash:
+		var flash = data.muzzle_flash.instantiate()
+		
+		if data.muzzle_angles.has(facing_direction.facing):
+			flash.rotation = data.muzzle_angles[facing_direction.facing]
+			
+			if facing_direction.facing == FacingDirection.Direction.DOWN:
+				flash.z_index = 2
+		else:
+			flash.rotation = angle
+		
+		flash.position = muzzle.position
+		print(angle)
+		
+		get_parent().add_child(flash)
+		
 	get_tree().current_scene.add_child(projectile)
 	
 	projectile.hitbox.damage_data = DamageData.new(

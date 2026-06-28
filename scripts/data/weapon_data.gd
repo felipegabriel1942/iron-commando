@@ -6,7 +6,8 @@ class_name WeaponData
 @export var projectile: PackedScene
 @export var fire_rate := 0.2
 @export var shot_sound: AudioStreamMP3
-@export var muzzle_positions: Dictionary[String, Vector2]
+@export var muzzle_positions: Dictionary[FacingDirection.Direction, Vector2]
+@export var muzzle_angles: Dictionary[FacingDirection.Direction, float]
 @export var recoil_range := 5
 @export var magazine_size: int = 12
 @export var reserve_ammo: int = 48
@@ -19,3 +20,5 @@ class_name WeaponData
 @export var damage: int = 1
 @export var knockback_force: int = 70
 @export var damage_type: DamageType.Type
+@export var muzzle_flash: PackedScene
+@export var recoil_fire: PackedScene

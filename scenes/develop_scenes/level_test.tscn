@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://c5oq6eyfav3kf" path="res://scenes/develop_scenes/level_test.gd" id="2_w7lb0"]
 [ext_resource type="TileSet" uid="uid://drjfxnmoj1u5q" path="res://resources/tile_set.tres" id="3_fu8mc"]
 [ext_resource type="PackedScene" uid="uid://bmyy7t6hkg4u" path="res://enemy/infantry/enemy_infantry.tscn" id="4_ibxoa"]
-[ext_resource type="Resource" uid="uid://dcahbq8tw885a" path="res://resources/weapons/smg.tres" id="5_fnrjn"]
 [ext_resource type="PackedScene" uid="uid://vy0ffr2etho8" path="res://pickables/pickups/bazooka_pickup.tscn" id="5_fo6n2"]
 [ext_resource type="PackedScene" uid="uid://bjdnxv2dwekpb" path="res://pickables/pickups/assault_rifle_pickup.tscn" id="6_4nslq"]
 
@@ -33,7 +32,6 @@ tile_map_data = PackedByteArray("AAD//wAAAAAiAAMAAAD//wEAAAAiAAMAAAD7/wAAAAAiAAM
 tile_set = ExtResource("3_fu8mc")
 
 [node name="Objects" type="TileMapLayer" parent="YSortRoot/MapLayers" parent_id_path=PackedInt32Array(1934244028) index="2" unique_id=523688530]
-z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD6////AAAfAAIAAAD6/wAAAAAfAAMAAAD6/wEAAAAfAAQAAAD6/wQAAAAfAAIAAAD6/wUAAAAfAAMAAAD6/wYAAAAfAAQAAAD+/wEAAAAfAAQAAAD+/wAAAAAfAAMAAAD+////AAAfAAIAAAD+//b/AAAfAAQAAAD+//X/AAAfAAMAAAD+//T/AAAfAAIAAAAAAPz/AAAfAAIAAAAAAP3/AAAfAAQAAAABAPz/AAAfAAIAAAABAP3/AAAfAAQAAAADAPj/AAAfAAIAAAADAPn/AAAfAAQAAAAEAPj/AAAfAAIAAAAEAPn/AAAfAAQAAAD4//H/AAAfAAQAAAD5//H/AAAfAAQAAAD8//H/AAAfAAQAAAD9//H/AAAfAAQAAAD4//D/AAAfAAIAAAD5//D/AAAfAAIAAAD8//D/AAAfAAIAAAD9//D/AAAfAAIAAAAEAPH/AAAfAAgAAAAEAPD/AAAfAAYAAAADAPH/AAAfAAgAAAADAPD/AAAfAAYAAAD7//H/AAAfAAgAAAD7//D/AAAfAAYAAAD6//D/AAAfAAYAAAD6//H/AAAfAAgAAADx//b/AAAfAAgAAADy//b/AAAfAAgAAADx//X/AAAfAAcAAADx//T/AAAfAAcAAADx//P/AAAfAAYAAADy//X/AAAfAAYAAAD1//b/AAAfAAQAAAD2//b/AAAfAAQAAAD1//X/AAAfAAIAAAD2//X/AAAfAAIAAAD6//b/AAAfAAQAAAD6//X/AAAfAAMAAAD6//T/AAAfAAIAAAD5//b/AAAfAAQAAAD5//X/AAAfAAIAAADx//D/AAAfAAQAAADx/+//AAAfAAMAAADx/+7/AAAfAAMAAADx/+3/AAAfAAMAAAD2/+z/AAAfAAQAAAD2/+v/AAAfAAMAAAD2/+r/AAAfAAMAAADx/+P/AAAfAAgAAADy/+P/AAAfAAgAAADz/+P/AAAfAAgAAADx/+L/AAAfAAcAAADy/+L/AAAfAAcAAADz/+L/AAAfAAcAAADx/+H/AAAfAAYAAADy/+H/AAAfAAYAAADz/+H/AAAfAAYAAADx/+b/AAAfAAIAAADx/+f/AAAfAAMAAADx/+j/AAAfAAQAAAAFAOP/AAAfAAIAAAAFAOT/AAAfAAMAAAAFAOX/AAAfAAQAAAAFANv/AAAfAAIAAAAFANz/AAAfAAMAAAAFAN3/AAAfAAQAAADx/9v/AAAfAAIAAADx/9z/AAAfAAMAAADx/93/AAAfAAQAAAD+/9b/AAAfAAIAAAD+/9f/AAAfAAMAAAD+/9j/AAAfAAQAAAD5/9b/AAAfAAIAAAD5/9f/AAAfAAMAAAD5/9j/AAAfAAQAAADx/8r/AAAfAAIAAADx/8v/AAAfAAMAAADx/8z/AAAfAAQAAADx/9D/AAAfAAIAAADx/9H/AAAfAAMAAADx/9L/AAAfAAQAAADx/8D/AAAfAAIAAADx/8H/AAAfAAMAAADx/8L/AAAfAAQAAAD3/7z/AAAfAAIAAAD3/73/AAAfAAMAAAD3/77/AAAfAAQAAAAAALz/AAAfAAIAAAAAAL3/AAAfAAMAAAAAAL7/AAAfAAQAAAAFAMD/AAAfAAIAAAAFAMH/AAAfAAMAAAAFAML/AAAfAAQAAAD2/8n/AAAfAAQAAAD3/8n/AAAfAAQAAAD4/8n/AAAfAAQAAAD2/8j/AAAfAAIAAAD3/8j/AAAfAAIAAAD4/8j/AAAfAAIAAAD4/+H/AAAfAAIAAAD3/+H/AAAfAAIAAAAAAOH/AAAfAAIAAAABAOH/AAAfAAIAAAD3/+L/AAAfAAQAAAD4/+L/AAAfAAQAAAAAAOL/AAAfAAQAAAABAOL/AAAfAAQAAAD2/+n/AAAfAAIAAAA=")
 tile_set = ExtResource("3_fu8mc")
@@ -107,10 +105,7 @@ position = Vector2(-224, -430)
 navigation_polygon = SubResource("NavigationPolygon_fnrjn")
 
 [node name="Player" parent="YSortRoot" parent_id_path=PackedInt32Array(1107825696) index="5" unique_id=287460810]
-position = Vector2(-164, 49)
-
-[node name="Weapon" parent="YSortRoot/Player" index="0" unique_id=602882196]
-data = ExtResource("5_fnrjn")
+position = Vector2(-169, 50)
 
 [editable path="YSortRoot/Player"]
 [editable path="YSortRoot/Player/HurtboxComponent"]

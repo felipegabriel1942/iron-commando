@@ -42,14 +42,15 @@ func destroy() -> void:
 	queue_free()
 
 func _on_hitbox_body_hit(body: Node2D) -> void:
-	VfxManager.generate_particle_effect(DUST_EFFECT, global_position, (-direction).angle())
-	SfxManager.play_random_sfx(hit_sounds)
-	
 	match body.name:
 		"Walls":
+			VfxManager.generate_particle_effect(DUST_EFFECT, global_position, (-direction).angle())
+			SfxManager.play_random_sfx(hit_sounds)
 			destroy()
 		"Objects":
-			if !origin_cover and randf() < 0.5:
+			if !origin_cover and randf() < 0.9:
+				VfxManager.generate_particle_effect(DUST_EFFECT, global_position, (-direction).angle())
+				SfxManager.play_random_sfx(hit_sounds)
 				queue_free()
 
 func _on_hurtbox_hit(hurtbox: HurtboxComponent) -> void:

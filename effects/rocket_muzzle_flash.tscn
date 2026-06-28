@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://6663nrdl5grm"]
+
+[ext_resource type="Script" uid="uid://h00kbciudh6i" path="res://effects/rocket_muzzle_flash.gd" id="1_3o8a7"]
+[ext_resource type="Texture2D" uid="uid://i3qonpovx17c" path="res://assets/art/Effects/Weapons Flash and Bullets/bazooka_flash.png" id="1_xgsg4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o8a7"]
+atlas = ExtResource("1_xgsg4")
+region = Rect2(0, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1ilp"]
+atlas = ExtResource("1_xgsg4")
+region = Rect2(7, 0, 7, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rah50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o8a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ilp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="RocketMuzzleFlash" type="Node2D" unique_id=168682227]
+script = ExtResource("1_3o8a7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961385529]
+sprite_frames = SubResource("SpriteFrames_rah50")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

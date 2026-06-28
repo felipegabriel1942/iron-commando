@@ -7,8 +7,9 @@ class_name EnemyInfantry
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
 @onready var attack_range_component: AttackRangeComponent = $AttackRangeComponent
 @onready var pathfind_component: PathfindComponent = $PathfindComponent
+@onready var facing_direction: FacingDirectionComponent = $FacingDirectionComponent
 
-var facing_direction := "down"
+#var facing_direction := "down"
 var player: Player
 var is_on_screen := false
 var movement_velocity := Vector2.ZERO
@@ -106,7 +107,8 @@ func update_facing_direction() -> void:
 		return
 	
 	var direction := (player.global_position - global_position).normalized()
-	facing_direction = DirectionUtils.get_facing_direction(direction)
+	facing_direction.face(direction)
+	#facing_direction = DirectionUtils.get_facing_direction(direction)
 	
 func _on_shoot_timer_timeout() -> void:
 	player = get_tree().get_first_node_in_group("player")

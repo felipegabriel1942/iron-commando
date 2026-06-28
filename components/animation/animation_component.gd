@@ -1,6 +1,8 @@
 extends Node2D
 class_name AnimationComponent
 
+@export var facing_direction: FacingDirectionComponent
+
 var current_animation := ""
 
 func _physics_process(delta: float) -> void:
@@ -26,25 +28,25 @@ func play_animation(animation_name: String) -> void:
 func get_animation_direction() -> String:
 	get_parent().animated_sprite.flip_h = false
 	
-	match get_parent().facing_direction:
-		"right":
+	match facing_direction.facing:
+		FacingDirection.Direction.RIGHT:
 			return "side"
-		"left":
+		FacingDirection.Direction.LEFT:
 			get_parent().animated_sprite.flip_h = true
 			return "side"
-		"up":
+		FacingDirection.Direction.UP:
 			return "up"
-		"down":
+		FacingDirection.Direction.DOWN:
 			return "down"
-		"up_left":
+		FacingDirection.Direction.UP_LEFT:
 			get_parent().animated_sprite.flip_h = true
 			return "diagonal_up"
-		"up_right":
+		FacingDirection.Direction.UP_RIGHT:
 			return "diagonal_up"
-		"down_left":
+		FacingDirection.Direction.DOWN_LEFT:
 			get_parent().animated_sprite.flip_h = true
 			return "diagonal_down"
-		"down_right":
+		FacingDirection.Direction.DOWN_RIGHT:
 			return "diagonal_down"
 
 	return "down"

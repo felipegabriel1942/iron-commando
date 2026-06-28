@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co6kxjc1fuo3w" path="res://scripts/data/weapon_data.gd" id="1_8q6yl"]
 [ext_resource type="PackedScene" uid="uid://dk3sliyhws24y" path="res://projectiles/rocket.tscn" id="1_gi2ae"]
+[ext_resource type="PackedScene" uid="uid://6663nrdl5grm" path="res://effects/rocket_muzzle_flash.tscn" id="1_hx47b"]
 [ext_resource type="AudioStream" uid="uid://d338uemiihrqu" path="res://assets/sfx/weapon_reload_01.mp3" id="2_qatat"]
 [ext_resource type="AudioStream" uid="uid://bt8qttkol0r7c" path="res://assets/sfx/bazooka_sound.mp3" id="4_gi2ae"]
 [ext_resource type="Texture2D" uid="uid://buf6dxe57kah0" path="res://assets/art/Pickables/bazooka.png" id="5_gi2ae"]
@@ -13,6 +14,14 @@ animation_suffix = "bazooka"
 projectile = ExtResource("1_gi2ae")
 fire_rate = 3.0
 shot_sound = ExtResource("4_gi2ae")
+muzzle_positions = Dictionary[int, Vector2]({
+6: Vector2(5, -13),
+7: Vector2(8, -7)
+})
+muzzle_angles = Dictionary[int, float]({
+6: -1.58,
+7: -0.82
+})
 magazine_size = 1
 reserve_ammo = 10
 reload_sound = ExtResource("2_qatat")
@@ -23,4 +32,5 @@ max_reserve_ammo = 10
 damage = 5
 knockback_force = 200
 damage_type = 2
+muzzle_flash = ExtResource("1_hx47b")
 metadata/_custom_type_script = "uid://co6kxjc1fuo3w"

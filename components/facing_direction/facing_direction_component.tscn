@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dc2phxw0xiqh8"]
+
+[ext_resource type="Script" uid="uid://4g3ccwqprcrq" path="res://components/facing_direction/facing_direction_component.gd" id="1_0lfda"]
+
+[node name="FacingDirectionComponent" type="Node2D" unique_id=614201422]
+script = ExtResource("1_0lfda")

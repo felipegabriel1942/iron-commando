@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c1nrri1fiir2o"]
+
+[ext_resource type="Script" uid="uid://bgdm3i8aurqv6" path="res://effects/muzzle_flash.gd" id="1_6s816"]
+[ext_resource type="Texture2D" uid="uid://hoknod67ox8m" path="res://assets/art/Effects/Weapons Flash and Bullets/weapons_flash.png" id="2_vctsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iylrs"]
+atlas = ExtResource("2_vctsq")
+region = Rect2(0, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y806x"]
+atlas = ExtResource("2_vctsq")
+region = Rect2(5, 0, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7h41p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iylrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y806x")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="MuzzleFlash" type="Node2D" unique_id=137999093]
+y_sort_enabled = true
+scale = Vector2(1, 0.5)
+script = ExtResource("1_6s816")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1423223782]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_7h41p")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

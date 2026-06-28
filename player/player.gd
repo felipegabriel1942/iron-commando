@@ -6,8 +6,9 @@ class_name Player
 @onready var weapon: Weapon = $Weapon
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var facing_direction: FacingDirectionComponent = $FacingDirectionComponent
 
-var facing_direction := "down"
+#var facing_direction := "down"
 var move_speed := 60
 var movement_velocity := Vector2.ZERO
 
@@ -51,7 +52,8 @@ func handle_movement() -> void:
 
 func update_facing_direction() -> void:
 	var mouse_direction := (get_global_mouse_position() - global_position).normalized()
-	facing_direction = DirectionUtils.get_facing_direction(mouse_direction)
+	facing_direction.face(mouse_direction)
+	# facing_direction = DirectionUtils.get_facing_direction(mouse_direction)
 
 func _on_damaged(damage_data: Variant) -> void:
 	GameFeelManager.flash_shader(animated_sprite)
